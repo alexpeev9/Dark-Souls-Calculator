@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 import connectionString from './utils/connectionString';
 import corsOptionsConfig from './configs/corsOptionsConfig';
 import loggerMiddleware from './middlewares/loggerMiddleware';
+import router from './routes';
 
 dotenv.config();
 const port = process.env.PORT || 5000;
@@ -19,10 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-// TODO: app.use('/api', require('./routes'));
-app.all('*', (req: Request, res: Response) =>
-  res.status(404).json({ error: '404 Not Found' })
-);
+app.use('/api', router);
 
 mongoose
   .connect(connectionString)
