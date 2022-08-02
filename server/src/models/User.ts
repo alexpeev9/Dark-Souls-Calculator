@@ -43,19 +43,14 @@ UserSchema.pre('save', function (next) {
 
 // Custom Methods
 
-// Get user by username
-UserSchema.methods.findByUsername = function (
-  username: string
-): Promise<IUser> {
-  const user: Promise<IUser> = this.findOne({ username });
-  return user;
-};
-
-// Check if passwords match
-UserSchema.methods.comparePassword = function (
-  password: string
-): Promise<boolean> {
-  const isValid: Promise<boolean> = bcrypt.compare(password, this.password);
+UserSchema.methods.comparePasswords = (
+  candidatePassword: string,
+  dbPassword: string
+): Promise<boolean> => {
+  const isValid: Promise<boolean> = bcrypt.compare(
+    candidatePassword,
+    dbPassword
+  );
   return isValid;
 };
 

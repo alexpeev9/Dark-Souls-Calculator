@@ -2,8 +2,11 @@ interface IUser {
   username: string;
   password: string;
   isAdmin: boolean;
-  findByUsername(username: string): IUser;
-  comparePassword(password: string): Promise<boolean>;
+
+  comparePasswords(
+    candidatePassword: string,
+    dbPassword: string
+  ): Promise<boolean>;
 }
 
 export default IUser;

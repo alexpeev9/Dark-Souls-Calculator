@@ -28,10 +28,11 @@ interface IWeapon extends mongoose.Document, IBaseModel {
   weight: number;
   durability: number;
   attack_type: string;
-  category: mongoose.Types.ObjectId;
+  category?: mongoose.Types.ObjectId;
   requirements: IRequirements;
   bonus: IBonus;
   damage: IDamage;
 }
 
+export { IRequirements, IBonus, IDamage };
 export default IWeapon;
