@@ -1,5 +1,5 @@
 import allowedOrigins from '../utils/allowedOrigins';
-import { IRequest, IResponse, INext } from './interface';
+import { IRequest, IResponse, INext } from '../interfaces/vendors';
 
 const credentialsMiddleware = (req: IRequest, res: IResponse, next: INext) => {
   const origin = req.headers.origin || '';

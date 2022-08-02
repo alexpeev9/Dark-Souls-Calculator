@@ -1,22 +1,16 @@
 import Weapon from '../models/Weapon';
-import IWeapon, { IRequirements } from '../models/interfaces/IWeapon';
+import IWeapon, { IRequirements } from '../interfaces/entities/IWeapon';
 import Category from '../models/Category';
-import ICategory from '../models/interfaces/ICategory';
 
-interface ICategoryEntity extends ICategory {
-  weapons: any[];
-}
-
-interface ICategoryList {
-  [key: string]: ICategoryEntity;
-}
+import ICategoryVM from '../interfaces/viewmodels/ICategoryVM';
+import ICategoriesVM from '../interfaces/viewmodels/ICategoriesVM';
 
 const searchByParams = async (
   requirements: IRequirements
-): Promise<ICategoryEntity[]> => {
+): Promise<ICategoryVM[]> => {
   const { strength, dexterity, faith, intelligence } = requirements;
 
-  const checkIfNumber = (property: any): number => {
+  const checkIfNumber = (property: number): number => {
     switch (typeof property) {
       case 'undefined':
         throw new Error(`Fill all requirements!`);
@@ -29,25 +23,24 @@ const searchByParams = async (
     return property;
   };
 
-  const weapons = await Weapon.find({
+  const weapons = (await Weapon.find({
     'requirements.strength': { $lte: checkIfNumber(strength) },
     'requirements.dexterity': { $lte: checkIfNumber(dexterity) },
     'requirements.faith': { $lte: checkIfNumber(faith) },
     'requirements.intelligence': { $lte: checkIfNumber(intelligence) },
-  }).select(['name', 'requirements', 'category', 'url', 'customId', '-_id']);
+  })
+    .select(['name', 'requirements', 'category', 'url', 'customId', '-_id'])
+    .lean()) as IWeapon[];
 
-  let categories: ICategoryList = {};
+  let categories: ICategoriesVM = {};
 
-  for (const weapon of weapons as Array<IWeapon>) {
-    const categoryId = weapon.category?.toString() || '';
+  for (const weapon of weapons) {
+    const categoryId: string = weapon.category?.toString() || '';
     delete weapon.category;
     if (!Object.keys(categories).includes(categoryId)) {
-      let currentCategory = (await Category.findById(categoryId).select([
-        'name',
-        'imageUrl',
-        'customId',
-        '-_id',
-      ])) as ICategoryEntity;
+      let currentCategory = (await Category.findById(categoryId)
+        .select(['name', 'imageUrl', 'customId', '-_id'])
+        .lean()) as ICategoryVM;
       if (currentCategory !== null) {
         currentCategory.weapons = [];
         currentCategory.weapons.push(weapon);
@@ -64,7 +57,7 @@ const searchByParams = async (
 };
 
 const getDetails = async (weaponName: string): Promise<IWeapon> => {
-  const weapon = (await Weapon.findOne({ customId: weaponName })
+  let weapon = (await Weapon.findOne({ customId: weaponName })
     .select(['-_id', '-createdAt', '-updatedAt', '-__v'])
     .lean()) as IWeapon;
   if (!weapon) throw new Error('Weapon not found!');

@@ -1,19 +1,20 @@
-import { IRequest, IResponse } from '../middlewares/interface';
+import IUser from '../interfaces/entities/IUser';
+import { IRequest, IResponse } from '../interfaces/vendors';
 import authService from '../services/authService';
 import errorHandler from '../utils/errorHandler';
 
-const register = async (req: IRequest, res: IResponse) => {
+const register = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   try {
     const { username, password } = req.body;
-    const response = await authService.register(username, password);
-    res.status(200).json(response);
+    const response: string = await authService.register(username, password);
+    return res.status(200).json(response);
   } catch (err) {
     const errorMessage = errorHandler(err);
-    res.status(500).json(errorMessage);
+    return res.status(500).json(errorMessage);
   }
 };
 
-const login = async (req: IRequest, res: IResponse) => {
+const login = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   try {
     const { username, password } = req.body;
     const response = await authService.login(username, password);
@@ -24,44 +25,48 @@ const login = async (req: IRequest, res: IResponse) => {
       secure: true,
     });
 
-    res.status(200).json(response);
+    return res.status(200).json(response);
   } catch (err) {
     const errorMessage = errorHandler(err);
-    res.status(500).json(errorMessage);
+    return res.status(500).json(errorMessage);
   }
 };
 
-const logout = async (req: IRequest, res: IResponse) => {
+const logout = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   try {
-    const cookies = req.cookies;
-
     res.clearCookie('JWT');
-    res.status(200).json('Successfully logout');
+    return res.status(200).json('Successfully logout');
   } catch (err) {
     const errorMessage = errorHandler(err);
-    res.status(500).json(errorMessage);
+    return res.status(500).json(errorMessage);
   }
 };
 
-const getAllUsers = async (req: IRequest, res: IResponse) => {
+const getAllUsers = async (
+  req: IRequest,
+  res: IResponse
+): Promise<IResponse> => {
   try {
-    const response = await authService.getUsers();
-    res.status(200).json(response);
+    const response: IUser[] = await authService.getUsers();
+    return res.status(200).json(response);
   } catch (err) {
     const errorMessage = errorHandler(err);
-    res.status(500).json(errorMessage);
+    return res.status(500).json(errorMessage);
   }
 };
 
-const deleteUser = async (req: IRequest, res: IResponse) => {
+const deleteUser = async (
+  req: IRequest,
+  res: IResponse
+): Promise<IResponse> => {
   try {
     const userId = req.params.id;
     const currUserName = req.body.requestSender?.username;
-    const response = await authService.deleteUser(userId, currUserName);
-    res.status(200).json(response);
+    const response: string = await authService.deleteUser(userId, currUserName);
+    return res.status(200).json(response);
   } catch (err) {
     const errorMessage = errorHandler(err);
-    res.status(500).json(errorMessage);
+    return res.status(500).json(errorMessage);
   }
 };
 

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import { IRequest, IResponse, INext } from './interface';
+import { IRequest, IResponse, INext } from '../interfaces/vendors';
 
 const verifyTokenMiddleware = (req: IRequest, res: IResponse, next: INext) => {
   const token = req.cookies['JWT'];

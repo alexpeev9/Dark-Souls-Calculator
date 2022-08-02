@@ -1,7 +1,11 @@
 import jwt from 'jsonwebtoken';
+import IUser from '../interfaces/entities/IUser';
 import User from '../models/User';
 
-const register = async (username: string, password: string) => {
+const register = async (
+  username: string,
+  password: string
+): Promise<string> => {
   if (!username || !password) throw new Error('All fields must be filled!');
 
   const duplicateUsername = await User.findOne({ username });
@@ -14,7 +18,7 @@ const register = async (username: string, password: string) => {
   return `${username} successfully registered`;
 };
 
-const login = async (username: string, password: string) => {
+const login = async (username: string, password: string): Promise<any> => {
   if (!username || !password) throw new Error('Fill All Inputs!');
 
   let userDb = await User.findOne({ username });
@@ -39,13 +43,16 @@ const login = async (username: string, password: string) => {
   };
 };
 
-const getUsers = async () => {
-  const users = await User.find().select(['username']);
+const getUsers = async (): Promise<IUser[]> => {
+  const users = (await User.find().select(['username'])) as IUser[];
   if (!users) throw new Error('No users are found!');
   return users;
 };
 
-const deleteUser = async (userId: string, currUserName: string) => {
+const deleteUser = async (
+  userId: string,
+  currUserName: string
+): Promise<string> => {
   const currUser = await User.findOne({ username: currUserName });
   const user = await User.findOne({ _id: userId });
 

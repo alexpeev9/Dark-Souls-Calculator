@@ -1,4 +1,4 @@
-import { IRequest, IResponse, INext } from './interface';
+import { IRequest, IResponse, INext } from '../interfaces/vendors';
 import logEventConfig from '../configs/logEventConfig';
 
 const loggerMiddleware = (req: IRequest, res: IResponse, next: INext) => {
