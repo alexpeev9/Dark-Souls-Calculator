@@ -20,6 +20,20 @@ const searchByParams = async (
   }
 };
 
+const getByCategory = async (
+  req: IRequest,
+  res: IResponse
+): Promise<IResponse> => {
+  try {
+    const { categoryName } = req.params;
+    const weapons = await weaponService.getByCategory(categoryName);
+    return res.status(200).json(weapons);
+  } catch (err) {
+    const errorMessage = errorHandler(err);
+    return res.status(500).json(errorMessage);
+  }
+};
+
 const getDetails = async (
   req: IRequest,
   res: IResponse
@@ -35,4 +49,4 @@ const getDetails = async (
   }
 };
 
-export default { searchByParams, getDetails };
+export default { searchByParams, getByCategory, getDetails };

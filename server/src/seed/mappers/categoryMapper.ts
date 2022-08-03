@@ -1,7 +1,7 @@
 import categoryData from '../data/categoryData.json';
 import Category from '../../models/Category';
 
-const categoryMapper = async () => {
+const categoryMapper = async (): Promise<void> => {
   if (await Category.findOne({ name: 'Category' })) {
     throw new Error('Database already has categories!');
   }

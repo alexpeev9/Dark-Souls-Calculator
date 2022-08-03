@@ -29,7 +29,7 @@ const searchByParams = async (
     'requirements.faith': { $lte: checkIfNumber(faith) },
     'requirements.intelligence': { $lte: checkIfNumber(intelligence) },
   })
-    .select(['name', 'requirements', 'category', 'url', 'customId', '-_id'])
+    .select('name requirements category imageUrl customId -_id')
     .lean()) as IWeapon[];
 
   let categories: ICategoriesVM = {};
@@ -39,7 +39,7 @@ const searchByParams = async (
     delete weapon.category;
     if (!Object.keys(categories).includes(categoryId)) {
       let currentCategory = (await Category.findById(categoryId)
-        .select(['name', 'imageUrl', 'customId', '-_id'])
+        .select('name imageUrl customId -_id')
         .lean()) as ICategoryVM;
       if (currentCategory !== null) {
         currentCategory.weapons = [];
@@ -56,9 +56,20 @@ const searchByParams = async (
   });
 };
 
+const getByCategory = async (categoryName: string) => {
+  const category = (await Category.findOne({ customId: categoryName })
+    .populate('weapons', 'name customId imageUrl -_id')
+    .select(['name', '-_id'])
+    .lean()) as ICategoryVM;
+
+  if (!category) throw new Error('CategoryId not found!');
+
+  return category;
+};
+
 const getDetails = async (weaponName: string): Promise<IWeapon> => {
   let weapon = (await Weapon.findOne({ customId: weaponName })
-    .select(['-_id', '-createdAt', '-updatedAt', '-__v'])
+    .select('-_id -createdAt -updatedAt -__v')
     .lean()) as IWeapon;
   if (!weapon) throw new Error('Weapon not found!');
   delete weapon.category;
@@ -66,4 +77,4 @@ const getDetails = async (weaponName: string): Promise<IWeapon> => {
   return weapon;
 };
 
-export default { searchByParams, getDetails };
+export default { searchByParams, getByCategory, getDetails };
