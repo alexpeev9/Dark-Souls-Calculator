@@ -12,6 +12,7 @@ const env = {
     process.env.NODE_ENV === 'production'
       ? process.env.DB_PROD_URL || ''
       : 'mongodb://localhost:27017/dark-souls-calc-db',
+  isInProduction: process.env.NODE_ENV === 'production',
 
   saltRounds: Number(process.env.SALT_ROUNDS) || 13,
   jwtSecret: process.env.JWT_SECRET || 'SECRETJWTKEY',

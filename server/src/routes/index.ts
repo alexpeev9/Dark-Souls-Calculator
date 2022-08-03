@@ -10,6 +10,4 @@ router.use('/auth', authRoutes);
 router.use('/weapon', weaponRoutes);
 router.use('/category', categoryRoutes);
 
-router.use('*', (req, res) => res.status(404).json('Request Not Found!'));
-
 export default router;
