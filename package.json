@@ -6,7 +6,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "cd server && npm install && npm ts-node ./src/index.ts",
+    "start": "cd server && npm install && npm run prod",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "client": "SET NODE_ENV=development&& cd client && npm start",
     "server": "SET NODE_ENV=development&& cd server && npm start",
@@ -17,5 +17,8 @@
     "name": "Aleksandar Peev",
     "url": "https://www.linkedin.com/in/alexpeev9/"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
