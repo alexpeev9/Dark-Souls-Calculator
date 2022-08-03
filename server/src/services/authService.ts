@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import env from '../env';
 import IUser from '../interfaces/entities/IUser';
 import User from '../models/User';
 
@@ -32,7 +33,7 @@ const login = async (username: string, password: string): Promise<any> => {
       username: userDb.username,
       isAdmin: userDb.isAdmin,
     },
-    `${process.env.JWT_SECRET}`,
+    env.jwtSecret,
     { expiresIn: '7d' }
   );
 

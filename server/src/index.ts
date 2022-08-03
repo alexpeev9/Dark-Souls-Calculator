@@ -1,16 +1,12 @@
 import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import credentialsMiddleware from './middlewares/credentialsMiddleware';
 import mongoose from 'mongoose';
-import connectionString from './utils/connectionString';
 import corsOptionsConfig from './configs/corsOptionsConfig';
 import loggerMiddleware from './middlewares/loggerMiddleware';
 import router from './routes';
-
-dotenv.config();
-const port = process.env.PORT || 5000;
+import env from './env';
 
 const app: Express = express();
 app.use(credentialsMiddleware);
@@ -23,9 +19,11 @@ app.use(cookieParser());
 app.use('/api', router);
 
 mongoose
-  .connect(connectionString)
+  .connect(env.connectionString)
   .then(() =>
-    app.listen(port, () => console.log(`Server is running on port ${port}`))
+    app.listen(env.port, () =>
+      console.log(`Server is running on port ${env.port}`)
+    )
   )
   .catch((err) => {
     console.log('Cannot connect to database.', err);

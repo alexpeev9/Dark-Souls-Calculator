@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 
+import env from '../env';
 import { IRequest, IResponse, INext } from '../interfaces/vendors';
 
 const verifyTokenMiddleware = (req: IRequest, res: IResponse, next: INext) => {
@@ -7,10 +8,7 @@ const verifyTokenMiddleware = (req: IRequest, res: IResponse, next: INext) => {
 
   if (token) {
     try {
-      req.body.requestSender = jwt.verify(
-        token,
-        process.env.JWT_SECRET || 'TestSecret'
-      );
+      req.body.requestSender = jwt.verify(token, env.jwtSecret || 'TestSecret');
       return next();
     } catch (e) {
       res.clearCookie(token);

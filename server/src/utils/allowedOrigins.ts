@@ -1,6 +1,5 @@
-const productionUrl: string = `http://localhost:${process.env.PORT || 5000}`;
-const developmentUrl: string = `${process.env.PROD_URL || productionUrl}`;
+import env from '../env';
 
-const allowedOrigins = [productionUrl, developmentUrl];
+const allowedOrigins = [env.prodUrl, env.devUrl];
 
 export default allowedOrigins;

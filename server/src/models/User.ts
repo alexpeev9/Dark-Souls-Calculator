@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
+import env from '../env';
 import IUser from '../interfaces/entities/IUser';
 
 const UserSchema = new Schema<IUser>(
@@ -35,7 +36,7 @@ const UserSchema = new Schema<IUser>(
 );
 
 UserSchema.pre('save', function (next) {
-  bcrypt.hash(this.password, Number(process.env.SALT_ROUNDS)).then((hash) => {
+  bcrypt.hash(this.password, env.saltRounds).then((hash) => {
     this.password = hash;
     next();
   });

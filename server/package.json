@@ -1,12 +1,17 @@
 {
-  "name": "server",
+  "name": "dark-souls-server",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
+    "start": "SET NODE_ENV=production&& nodemon ./src/index.ts",
     "dev": "SET NODE_ENV=development&& nodemon ./src/index.ts",
     "prod": "SET NODE_ENV=production&& nodemon ./src/index.ts",
-    "migration-dev": "SET NODE_ENV=production&& ts-node ./src/seed",
+    "migration-dev": "SET NODE_ENV=development&& ts-node ./src/seed",
     "migration-prod": "SET NODE_ENV=production&& ts-node ./src/seed"
+  },
+  "author": {
+    "name": "Aleksandar Peev",
+    "url": "https://www.linkedin.com/in/alexpeev9/"
   },
   "license": "MIT",
   "dependencies": {

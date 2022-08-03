@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
 
-import connectionString from '../utils/connectionString';
 import userMapper from './mappers/userMapper';
 import categoryMapper from './mappers/categoryMapper';
 import weaponMapper from './mappers/weaponMapper';
 import relationMapper from './mappers/relationMapper';
+import env from '../env';
 
 async function seed(): Promise<never> {
   try {
     console.log('Migration has started...');
-    await mongoose.connect(connectionString);
+
+    await mongoose.connect(env.connectionString);
 
     await userMapper();
     await categoryMapper();
