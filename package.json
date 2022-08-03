@@ -1,0 +1,21 @@
+{
+  "name": "dark-souls-calculator",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.17.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "cd server && yarn install && yarn ts-node ./src/index.ts",
+    "heroku-postbuild": "cd client && yarn install && yarn run build",
+    "client": "SET NODE_ENV=development&& cd client && yarn start",
+    "server": "SET NODE_ENV=development&& cd server && yarn start",
+    "prod": "SET NODE_ENV=production&& cd server && yarn start"
+  },
+  "repository": "https://github.com/alexpeev9/dark-souls-calculator.git",
+  "author": {
+    "name": "Aleksandar Peev",
+    "url": "https://www.linkedin.com/in/alexpeev9/"
+  },
+  "license": "MIT"
+}
