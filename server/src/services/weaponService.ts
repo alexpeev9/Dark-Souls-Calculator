@@ -62,7 +62,7 @@ const getByCategory = async (categoryName: string) => {
     .select(['name', '-_id'])
     .lean()) as ICategoryVM;
 
-  if (!category) throw new Error('CategoryId not found!');
+  if (!category) throw new Error('Weapons not found!');
 
   return category;
 };
