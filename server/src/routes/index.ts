@@ -16,7 +16,7 @@ router.use('/api/category', categoryRoutes);
 router.use('*', (req: any, res: any) => {
   return env.isInProduction
     ? res.sendFile(
-        path.join(__dirname, '../../../../', '/client/build/index.html')
+        path.join(__dirname, '../../../', '/client/build/index.html')
       )
     : res.status(404).json('Request Not Found!');
 });
