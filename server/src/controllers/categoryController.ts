@@ -1,10 +1,10 @@
 import ICategory from '../interfaces/entities/ICategory';
-import { IRequest, IResponse } from '../interfaces/vendors';
+import { Request, Response } from 'express';
 import Category from '../models/Category';
 import categoryService from '../services/categoryService';
 import errorHandler from '../utils/errorHandler';
 
-const getAll = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const getAll = async (req: Request, res: Response): Promise<Response> => {
   try {
     const categories: ICategory[] = await categoryService.getAll();
     return res.status(200).json(categories);
@@ -14,7 +14,7 @@ const getAll = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const create = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const create = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { name } = req.body;
     const response: string = await categoryService.create(name);
@@ -25,7 +25,7 @@ const create = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const update = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const update = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { customId } = req.params;
     const { name } = req.body;
@@ -37,7 +37,7 @@ const update = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const remove = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const remove = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { customId } = req.params;
     const response = await categoryService.remove(customId);

@@ -1,9 +1,13 @@
 import jwt from 'jsonwebtoken';
 
 import env from '../env';
-import { IRequest, IResponse, INext } from '../interfaces/vendors';
+import { Request, Response, NextFunction } from 'express';
 
-const verifyTokenMiddleware = (req: IRequest, res: IResponse, next: INext) => {
+const verifyTokenMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const token = req.cookies['JWT'];
 
   if (token) {

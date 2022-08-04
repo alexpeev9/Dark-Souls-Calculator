@@ -1,7 +1,11 @@
 import allowedOrigins from '../utils/allowedOrigins';
-import { IRequest, IResponse, INext } from '../interfaces/vendors';
+import { Request, Response, NextFunction } from 'express';
 
-const credentialsMiddleware = (req: IRequest, res: IResponse, next: INext) => {
+const credentialsMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const origin = req.headers.origin || '';
   if (allowedOrigins.includes(origin)) {
     res.header('Access-Control-Allow-Credentials', 'true');

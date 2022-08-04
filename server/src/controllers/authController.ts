@@ -1,9 +1,8 @@
 import IUser from '../interfaces/entities/IUser';
-import { IRequest, IResponse } from '../interfaces/vendors';
 import authService from '../services/authService';
 import errorHandler from '../utils/errorHandler';
 
-const register = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const register = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { username, password } = req.body;
     const response: string = await authService.register(username, password);
@@ -14,7 +13,7 @@ const register = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const login = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const login = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { username, password } = req.body;
     const response = await authService.login(username, password);
@@ -32,7 +31,7 @@ const login = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const logout = async (req: IRequest, res: IResponse): Promise<IResponse> => {
+const logout = async (req: Request, res: Response): Promise<Response> => {
   try {
     res.clearCookie('JWT');
     return res.status(200).json('Successfully logout');
@@ -42,10 +41,7 @@ const logout = async (req: IRequest, res: IResponse): Promise<IResponse> => {
   }
 };
 
-const getAllUsers = async (
-  req: IRequest,
-  res: IResponse
-): Promise<IResponse> => {
+const getAllUsers = async (req: Request, res: Response): Promise<Response> => {
   try {
     const response: IUser[] = await authService.getUsers();
     return res.status(200).json(response);
@@ -55,10 +51,7 @@ const getAllUsers = async (
   }
 };
 
-const deleteUser = async (
-  req: IRequest,
-  res: IResponse
-): Promise<IResponse> => {
+const deleteUser = async (req: Request, res: Response): Promise<Response> => {
   try {
     const userId = req.params.id;
     const currUserName = req.body.requestSender?.username;

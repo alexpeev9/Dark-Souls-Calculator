@@ -7,7 +7,6 @@ import path from 'path';
 import credentialsMiddleware from './middlewares/credentialsMiddleware';
 import corsOptionsConfig from './configs/corsOptionsConfig';
 import loggerMiddleware from './middlewares/loggerMiddleware';
-import { IRequest, IResponse } from './interfaces/vendors';
 import router from './routes';
 import env from './env';
 
