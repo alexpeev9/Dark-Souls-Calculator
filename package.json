@@ -6,10 +6,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "cd server && npm install && npm run tsc && node dist/index.js",
+    "start": "cd server && npm install && npx tsc && node dist/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "tsc": "tsc",
     "client": "SET NODE_ENV=development&& cd client && npm start",
+    "tsc": "./node_modules/typescript/bin/tsc",
     "server": "SET NODE_ENV=development&& cd server && npm start"
   },
   "repository": "https://github.com/alexpeev9/dark-souls-calculator.git",
