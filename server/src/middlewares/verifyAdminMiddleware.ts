@@ -1,6 +1,10 @@
-import { IRequest, IResponse, INext } from '../interfaces/vendors';
+import { Request, Response, NextFunction } from 'express';
 
-const verifyAdminMiddleware = (req: IRequest, res: IResponse, next: INext) => {
+const verifyAdminMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   if (!req.body.requestSender.isAdmin)
     res.status(500).json('User is not authorized!');
   next();
