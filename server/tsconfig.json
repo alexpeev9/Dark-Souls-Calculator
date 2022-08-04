@@ -7,7 +7,6 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "outDir": "./dist",
-    "alwaysStrict": true,
     "skipLibCheck": true
   }
 }
