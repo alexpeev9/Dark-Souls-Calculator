@@ -8,7 +8,6 @@
   "scripts": {
     "start": "cd server && npm install && npm run tsc && node dist/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "tsc": "tsc",
     "client": "SET NODE_ENV=development&& cd client && npm start",
     "server": "SET NODE_ENV=development&& cd server && npm start"
   },
