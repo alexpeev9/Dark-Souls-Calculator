@@ -23,13 +23,7 @@ if (env.isInProduction) {
   app.use(express.static(path.join(__dirname, '../../', '/client/build/')));
 }
 
-app.use('/api', router);
-
-router.use('*', (req: IRequest, res: IResponse) => {
-  return env.isInProduction
-    ? res.sendFile(path.join(__dirname, '../../', '/client/build/index.html'))
-    : res.status(404).json('Request Not Found!');
-});
+app.use('/', router);
 
 mongoose
   .connect(env.connectionString)
