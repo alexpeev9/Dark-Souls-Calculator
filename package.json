@@ -6,8 +6,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "SET NODE_ENV=production&& cd server && npm install && npx tsc && node dist/index.js",
+    "start": "cd server && npm install && npm run tsc && node dist/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
+    "tsc": "tsc",
     "client": "SET NODE_ENV=development&& cd client && npm start",
     "server": "SET NODE_ENV=development&& cd server && npm start"
   },
@@ -18,6 +19,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
   }
 }
