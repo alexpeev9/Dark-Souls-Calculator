@@ -6,7 +6,6 @@ import weaponRoutes from './weaponRoutes';
 import categoryRoutes from './categoryRoutes';
 
 import env from '../env';
-import { Request, Response } from 'express';
 
 const router = Router();
 
@@ -14,7 +13,7 @@ router.use('/api/auth', authRoutes);
 router.use('/api/weapon', weaponRoutes);
 router.use('/api/category', categoryRoutes);
 
-router.use('*', (req: Request, res: Response) => {
+router.use('*', (req: any, res: any) => {
   return env.isInProduction
     ? res.sendFile(
         path.join(__dirname, '../../../', '/client/build/index.html')

@@ -2,7 +2,7 @@ import IUser from '../interfaces/entities/IUser';
 import authService from '../services/authService';
 import errorHandler from '../utils/errorHandler';
 
-const register = async (req: Request, res: Response): Promise<Response> => {
+const register = async (req: any, res: any) => {
   try {
     const { username, password } = req.body;
     const response: string = await authService.register(username, password);
@@ -13,7 +13,7 @@ const register = async (req: Request, res: Response): Promise<Response> => {
   }
 };
 
-const login = async (req: Request, res: Response): Promise<Response> => {
+const login = async (req: any, res: any) => {
   try {
     const { username, password } = req.body;
     const response = await authService.login(username, password);
@@ -31,7 +31,7 @@ const login = async (req: Request, res: Response): Promise<Response> => {
   }
 };
 
-const logout = async (req: Request, res: Response): Promise<Response> => {
+const logout = async (req: any, res: any) => {
   try {
     res.clearCookie('JWT');
     return res.status(200).json('Successfully logout');
@@ -41,7 +41,7 @@ const logout = async (req: Request, res: Response): Promise<Response> => {
   }
 };
 
-const getAllUsers = async (req: Request, res: Response): Promise<Response> => {
+const getAllUsers = async (req: any, res: any) => {
   try {
     const response: IUser[] = await authService.getUsers();
     return res.status(200).json(response);
@@ -51,7 +51,7 @@ const getAllUsers = async (req: Request, res: Response): Promise<Response> => {
   }
 };
 
-const deleteUser = async (req: Request, res: Response): Promise<Response> => {
+const deleteUser = async (req: any, res: any) => {
   try {
     const userId = req.params.id;
     const currUserName = req.body.requestSender?.username;

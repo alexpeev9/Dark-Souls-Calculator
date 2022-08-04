@@ -1,13 +1,9 @@
-import { Request, Response } from 'express';
 import weaponService from '../services/weaponService';
 import errorHandler from '../utils/errorHandler';
 import IWeapon, { IRequirements } from '../interfaces/entities/IWeapon';
 import ICategoryVM from '../interfaces/viewmodels/ICategoryVM';
 
-const searchByParams = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+const searchByParams = async (req: any, res: any) => {
   try {
     const requirements = req.body as IRequirements;
     const weapons: ICategoryVM[] = await weaponService.searchByParams(
@@ -20,10 +16,7 @@ const searchByParams = async (
   }
 };
 
-const getByCategory = async (
-  req: Request,
-  res: Response
-): Promise<Response> => {
+const getByCategory = async (req: any, res: any) => {
   try {
     const { categoryName } = req.params;
     const weapons = await weaponService.getByCategory(categoryName);
@@ -34,7 +27,7 @@ const getByCategory = async (
   }
 };
 
-const getDetails = async (req: Request, res: Response): Promise<Response> => {
+const getDetails = async (req: any, res: any) => {
   try {
     const { weaponName } = req.params;
 
