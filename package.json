@@ -6,8 +6,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd client && yarn install && yarn run build",
-    "start": "cd server && yarn install && yarn tsc && node dist/index.js",
+    "heroku-postbuild": "cd client && yarn install && yarn run build && cd ../server && yarn install && yarn tsc",
+    "start": "cd server && node dist/index.js",
     "client": "SET NODE_ENV=development&& cd client && yarn start",
     "server": "SET NODE_ENV=development&& cd server && yarn start"
   },
