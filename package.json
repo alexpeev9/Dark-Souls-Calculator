@@ -2,14 +2,14 @@
   "name": "dark-souls-calculator",
   "version": "1.0.0",
   "engines": {
-    "node": "14.17.1"
+    "yarn": "1.x"
   },
   "main": "index.js",
   "scripts": {
-    "postbuild": "cd client && npm install && npm run build",
-    "start": "cd server && npm install && npx tsc && node dist/index.js",
-    "client": "SET NODE_ENV=development&& cd client && npm start",
-    "server": "SET NODE_ENV=development&& cd server && npm start"
+    "postbuild": "cd client && yarn install && yarn run build",
+    "start": "cd server && yarn install && yarn tsc && node dist/index.js",
+    "client": "SET NODE_ENV=development&& cd client && yarn start",
+    "server": "SET NODE_ENV=development&& cd server && yarn start"
   },
   "repository": "https://github.com/alexpeev9/dark-souls-calculator.git",
   "author": {
