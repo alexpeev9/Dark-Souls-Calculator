@@ -6,7 +6,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "cd server && npm install && npx tsc && cd .. cd client && npm install && npm run build",
+    "heroku-postbuild": "cd server && npm install && npx tsc && cd ../client && npm install && npm run build",
     "start": "cd server && node dist/index.js",
     "client": "SET NODE_ENV=development&& cd client && npm start",
     "server": "SET NODE_ENV=development&& cd server && npm start"
