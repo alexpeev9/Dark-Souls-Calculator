@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "build": "npx tsc",
     "start": "SET NODE_ENV=development&& node dist/index.js",
-    "tsc": "tsc",
+    "tsc": "npm install -D typescript && tsc",
     "dev": "SET NODE_ENV=development&& concurrently \"npx tsc --watch\" \"nodemon -q  dist/index.js\"",
     "prod": "SET NODE_ENV=production&& concurrently \"npx tsc --watch\" \"nodemon -q  dist/index.js\"",
     "migration-dev": "SET NODE_ENV=development&& ts-node ./src/seed",
