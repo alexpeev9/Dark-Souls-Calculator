@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'KELMSCOT'; /*a name to be used later*/
+  src: url('./KELMSCOT.TTF'); /*URL to font*/
+}
+
+@font-face {
+  font-family: 'Optimus Princeps';
+  src: url('./OptimusPrinceps.ttf');
+}
+
+@font-face {
+  font-family: 'Optimus Princeps SemiBold';
+  src: url('./OptimusPrincepsSemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Augusta';
+  src: url('./Augusta.ttf');
+}

@@ -14,8 +14,8 @@ const UserSchema = new Schema<IUser>(
         /^[a-zA-Z0-9]+$/,
         'Username should consist of only english letters and digits',
       ],
-      minLength: [3, 'Username cannot be less than 3 characters'],
-      maxLength: [15, 'Username cannot be more than 15 characters'],
+      minLength: [4, 'Username cannot be less than 4 characters'],
+      maxLength: [11, 'Username cannot be more than 11 characters'],
     },
     password: {
       type: String,
@@ -24,8 +24,8 @@ const UserSchema = new Schema<IUser>(
         /^[a-zA-Z0-9]+$/,
         'Password should consist of only english letters and digits',
       ],
-      minLength: [5, 'Password cannot be less than 5 characters'],
-      maxLength: [15, 'Password cannot be more than 15 characters'],
+      minLength: [4, 'Password cannot be less than 4 characters'],
+      maxLength: [11, 'Password cannot be more than 11 characters'],
     },
     isAdmin: {
       type: Boolean,
