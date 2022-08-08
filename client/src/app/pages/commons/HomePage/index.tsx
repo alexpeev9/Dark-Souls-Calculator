@@ -15,6 +15,6 @@ const HomePage = () => {
 
 export default HomePage;
 
-const HomePageWrapper = styled.h1`
+const HomePageWrapper = styled.h2`
   color: ${(p) => p.theme.primary};
 `;

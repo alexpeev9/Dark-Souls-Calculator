@@ -2,8 +2,11 @@ import { Helmet } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from '../assets/styles/GlobalStyle';
 import NavBar from './components/NavBar';
+import LoginPage from './pages/auth/LoginPage';
+import RegisterPage from './pages/auth/RegisterPage';
 
-import HomePage from './pages/HomePage';
+import HomePage from './pages/commons/HomePage';
+import NotFoundPage from './pages/commons/NotFoundPage';
 
 const App = () => {
   return (
@@ -17,6 +20,10 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/login' element={<LoginPage />} />
+
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <GlobalStyle />
     </BrowserRouter>

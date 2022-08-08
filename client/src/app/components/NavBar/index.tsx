@@ -1,30 +1,25 @@
-import styled from 'styled-components';
-
+import styled from 'styled-components/macro';
+import Buttons from './Buttons';
 import Logo from './Logo';
-// import Buttons from './Buttons';
-// import TypeList from './TypeList';
 
 const NavBar = () => {
   return (
-    <HeaderWrapper>
+    <NavBarWrapper>
       <Logo />
-      {/* <Buttons />
-      <TypeList /> */}
-    </HeaderWrapper>
+      <Buttons />
+    </NavBarWrapper>
   );
 };
 
 export default NavBar;
 
-const HeaderWrapper = styled.header`
-  align-items: center;
-  height: 100vh;
-  font-family: 'Optimus Princeps';
-  background-color: #414855;
-  opacity: 90%;
+const NavBarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
-  flex-wrap: auto;
+  align-items: center;
+  height: 100vh;
+  opacity: 90%;
+  background-color: ${(p) => p.theme.secondary};
 
   @media only screen and (max-width: 1500px) {
     grid-area: nav;

@@ -1,8 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 import { BackgroundImage } from '../images/common';
+import { StyleConstants } from './StyleConstants';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  
+  html,body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  #root {
     margin: 0;
     font-size: 1.5rem;
     background-image: URL(${BackgroundImage});
@@ -26,6 +35,12 @@ const GlobalStyle = createGlobalStyle`
     @media only screen and (max-width: 900px) {
       flex-direction: column;
     }
+
+  }
+  
+  a {
+    text-decoration: none;
+    color: ${(p) => p.theme.text}
   }
 `;
 

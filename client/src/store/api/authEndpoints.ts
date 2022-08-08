@@ -1,7 +1,13 @@
 import api from './index';
 
-export const authApi = api.injectEndpoints({
+export const authEndpoint = api.injectEndpoints({
   endpoints: (builder: any) => ({
+    logout: builder.mutation({
+      query: () => ({
+        url: '/auth/logout',
+        method: 'GET',
+      }),
+    }),
     login: builder.mutation({
       query: (credentials: any) => ({
         url: '/auth/login',
@@ -9,13 +15,15 @@ export const authApi = api.injectEndpoints({
         body: { ...credentials },
       }),
     }),
-    logout: builder.mutation({
-      query: () => ({
-        url: '/auth/logout',
-        method: 'GET',
+    register: builder.mutation({
+      query: (credentials: any) => ({
+        url: '/auth/register',
+        method: 'POST',
+        body: { ...credentials },
       }),
     }),
   }),
 });
 
-export const { useLoginMutation, useLogoutMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation, useLogoutMutation } =
+  authEndpoint;

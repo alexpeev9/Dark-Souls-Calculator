@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { LogoCircle } from '../../../assets/images/common';
+import H1 from '../H1';
 
 const Logo = () => {
   return (
     <LogoWrapper to='/'>
-      <ImageWrapper>
-        <Image src={LogoCircle} alt='test' />
-      </ImageWrapper>
-      <NavBarTitle>Dark Souls Calculator</NavBarTitle>
+      <ImageWrapper src={LogoCircle} alt='Warrior Logo' />
+      <H1>Dark Souls Calculator</H1>
     </LogoWrapper>
   );
 };
@@ -17,8 +16,7 @@ const Logo = () => {
 export default Logo;
 
 const LogoWrapper = styled(Link)`
-  font-family: 'Optimus Princeps SemiBold';
-  text-decoration: none;
+  width: 16rem;
   justify-content: center;
   padding-top: 1.5rem;
   display: flex;
@@ -29,7 +27,9 @@ const LogoWrapper = styled(Link)`
   }
 `;
 
-const ImageWrapper = styled.section`
+const ImageWrapper = styled.img`
+  width: 9.4rem;
+  height: 9.4rem;
   border-radius: 50%;
   padding: 0.3rem 0.3rem 0.7rem 0.7rem;
   filter: invert(76%) sepia(66%) saturate(819%) hue-rotate(341deg)
@@ -38,21 +38,7 @@ const ImageWrapper = styled.section`
 
   &:hover {
     filter: none;
-    background-color: #f2b524;
-    border: 0.15rem solid #f2b524;
+    background-color: ${(p) => p.theme.primary};
+    border: 0.15rem solid ${(p) => p.theme.primary};
   }
-`;
-
-const NavBarTitle = styled.h1`
-  word-break: break-word;
-  color: #f2b524;
-  max-width: 165px;
-  margin: 0;
-  padding: 1rem;
-  text-align: center;
-`;
-
-const Image = styled.img`
-  width: 9.4rem;
-  height: 9.4rem;
 `;
