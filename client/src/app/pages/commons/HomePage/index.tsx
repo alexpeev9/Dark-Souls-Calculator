@@ -6,15 +6,15 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>Home</title>
-        <meta name='description' content='Dark Souls Calculator' />
+        <meta name='description' content='Welcome to Dark Souls Calculator!' />
       </Helmet>
-      <HomePageWrapper>HomePage</HomePageWrapper>
+      {/* <HomePageWrapper></HomePageWrapper> */}
     </>
   );
 };
 
 export default HomePage;
 
-const HomePageWrapper = styled.h2`
-  color: ${(p) => p.theme.primary};
-`;
+// const HomePageWrapper = styled.h2`
+//   color: ${(p) => p.theme.primary};
+// `;

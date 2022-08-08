@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { StyleConstants } from '../../../assets/styles/StyleConstants';
 
 const H1 = styled.h1`

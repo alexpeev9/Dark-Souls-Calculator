@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 import { LogoCircle } from '../../../assets/images/common';
@@ -25,6 +25,10 @@ const LogoWrapper = styled(Link)`
   @media only screen and (max-width: 900px) {
     width: 100%;
   }
+
+  ${H1} {
+    margin: 0.6rem 0 1.2rem 0;
+  }
 `;
 
 const ImageWrapper = styled.img`
@@ -34,11 +38,11 @@ const ImageWrapper = styled.img`
   padding: 0.3rem 0.3rem 0.7rem 0.7rem;
   filter: invert(76%) sepia(66%) saturate(819%) hue-rotate(341deg)
     brightness(100%) contrast(91%);
-  border: 0.15rem solid black;
+  border: 0.3rem solid black;
 
   &:hover {
     filter: none;
     background-color: ${(p) => p.theme.primary};
-    border: 0.15rem solid ${(p) => p.theme.primary};
+    border: 0.3rem solid ${(p) => p.theme.primary};
   }
 `;

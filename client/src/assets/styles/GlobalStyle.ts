@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components/macro';
 import { BackgroundImage } from '../images/common';
 import { StyleConstants } from './StyleConstants';
 
@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
   }
   
   #root {
+    width: 100wh;
+    height: 100vh;
     margin: 0;
     font-size: 1.5rem;
     background-image: URL(${BackgroundImage});

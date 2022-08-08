@@ -1,5 +1,5 @@
 import { Children } from 'react';
-import { ThemeProvider as OriginalThemeProvider } from 'styled-components';
+import { ThemeProvider as OriginalThemeProvider } from 'styled-components/macro';
 
 import theme from './theme';
 

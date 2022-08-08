@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { StyleConstants } from '../../../assets/styles/StyleConstants';
 
 const H2 = styled.h2`
@@ -8,7 +8,6 @@ const H2 = styled.h2`
 
   font-family: ${StyleConstants.FONT_OPTIMUS_BOLD};
   text-align: center;
-  color: ${(p) => p.theme.primary};
   text-decoration: underline;
 `;
 

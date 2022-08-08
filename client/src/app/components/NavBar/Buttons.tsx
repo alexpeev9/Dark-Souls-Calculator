@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import Button from '../Button';
 import Link from '../Link';
@@ -30,12 +30,9 @@ const Buttons = () => {
           <Link to='/register'>Join Now</Link>
         </>
       ) : (
-        <>
-          <Link to='/profile'>Profile</Link>
-          <Button type='button' onClick={onLogout}>
-            Logout
-          </Button>
-        </>
+        <Button type='button' onClick={onLogout}>
+          Logout
+        </Button>
       )}
     </ButtonsWrapper>
   );

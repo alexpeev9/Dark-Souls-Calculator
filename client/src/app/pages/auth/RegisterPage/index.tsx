@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 
 import {
   useLoginMutation,
   useRegisterMutation,
 } from '../../../../store/api/authEndpoints';
-import { setCredentials } from '../../../../store/slices/authSlice';
+import {
+  selectCurrentUsername,
+  setCredentials,
+} from '../../../../store/slices/authSlice';
 import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import Input from '../../../components/Form/Input';
@@ -21,11 +24,13 @@ import ErrorMsg from '../../../components/ErrorMsg';
 import ErrorButton from '../../../components/ErrorMsg/ErrorButton';
 import errorHandler from '../../../utils/errorHandler';
 import InputField from '../LoginPage/InputField';
+import { Helmet } from 'react-helmet-async';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
+  const isLogged = useSelector(selectCurrentUsername);
 
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate();
@@ -62,45 +67,55 @@ const RegisterPage = () => {
   const handleRePwdInput = (e: any) => setRePassword(e.target.value);
 
   return (
-    <RegisterWrapper>
-      <Form onSubmit={handleSubmit}>
-        <H2>REGISTER:</H2>
+    <>
+      <Helmet>
+        <title>Register</title>
+        <meta name='description' content='Join DS Calculator' />
+      </Helmet>
+      <RegisterWrapper>
+        {!isLogged ? (
+          <Form onSubmit={handleSubmit}>
+            <H2>REGISTER:</H2>
 
-        <InputField
-          name='Username'
-          value={username}
-          type='text'
-          onInputChange={handleUserInput}
-          Icon={AttackTypeIcon}
-        />
+            <InputField
+              name='Username'
+              value={username}
+              type='text'
+              onInputChange={handleUserInput}
+              Icon={AttackTypeIcon}
+            />
 
-        <InputField
-          name='Password'
-          value={password}
-          type='password'
-          onInputChange={handlePwdInput}
-          Icon={DurabilityIcon}
-        />
+            <InputField
+              name='Password'
+              value={password}
+              type='password'
+              onInputChange={handlePwdInput}
+              Icon={DurabilityIcon}
+            />
 
-        <InputField
-          name='Re-Password'
-          value={rePassword}
-          type='password'
-          onInputChange={handleRePwdInput}
-          Icon={DurabilityIcon}
-        />
+            <InputField
+              name='Re-Password'
+              value={rePassword}
+              type='password'
+              onInputChange={handleRePwdInput}
+              Icon={DurabilityIcon}
+            />
 
-        {errMsg ? <ErrorMsg>{errMsg}</ErrorMsg> : <></>}
-        {isLoadingRegister || isLoadingLogin ? (
-          <ErrorButton>...Loading</ErrorButton>
+            {errMsg ? <ErrorMsg>{errMsg}</ErrorMsg> : <></>}
+            {isLoadingRegister || isLoadingLogin ? (
+              <ErrorButton>...Loading</ErrorButton>
+            ) : (
+              <>
+                <Button type='submit'>Register</Button>
+                <Link to='/login'>Sign in</Link>
+              </>
+            )}
+          </Form>
         ) : (
-          <>
-            <Button type='submit'>Register</Button>
-            <Link to='/login'>Sign in</Link>
-          </>
+          <></>
         )}
-      </Form>
-    </RegisterWrapper>
+      </RegisterWrapper>
+    </>
   );
 };
 
@@ -115,6 +130,10 @@ const RegisterWrapper = styled.section`
 
   @media only screen and (max-width: 900px) {
     align-items: normal;
+  }
+
+  ${H2} {
+    color: ${(p) => p.theme.primary};
   }
 
   ${Form} {

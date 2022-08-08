@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { useLoginMutation } from '../../../../store/api/authEndpoints';
-import { setCredentials } from '../../../../store/slices/authSlice';
+import {
+  selectCurrentUsername,
+  setCredentials,
+} from '../../../../store/slices/authSlice';
 import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import { Label } from '../../../components/Form/Label';
@@ -20,11 +23,14 @@ import ErrorMsg from '../../../components/ErrorMsg';
 import ErrorButton from '../../../components/ErrorMsg/ErrorButton';
 import InputField from './InputField';
 import errorHandler from '../../../utils/errorHandler';
+import { Helmet } from 'react-helmet-async';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
+  const isLogged = useSelector(selectCurrentUsername);
+
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
@@ -51,36 +57,46 @@ const LoginPage = () => {
   const handlePwdInput = (e: any) => setPassword(e.target.value);
 
   return (
-    <LoginWrapper>
-      <Form onSubmit={handleSubmit}>
-        <H2>LOGIN:</H2>
-        <InputField
-          name='Username'
-          value={username}
-          type='text'
-          onInputChange={handleUserInput}
-          Icon={AttackTypeIcon}
-        />
+    <>
+      <Helmet>
+        <title>Login</title>
+        <meta name='description' content='Login Page for DS Calculator' />
+      </Helmet>
+      <LoginWrapper>
+        {!isLogged ? (
+          <Form onSubmit={handleSubmit}>
+            <H2>LOGIN:</H2>
+            <InputField
+              name='Username'
+              value={username}
+              type='text'
+              onInputChange={handleUserInput}
+              Icon={AttackTypeIcon}
+            />
 
-        <InputField
-          name='Password'
-          value={password}
-          type='password'
-          onInputChange={handlePwdInput}
-          Icon={DurabilityIcon}
-        />
+            <InputField
+              name='Password'
+              value={password}
+              type='password'
+              onInputChange={handlePwdInput}
+              Icon={DurabilityIcon}
+            />
 
-        {errMsg ? <ErrorMsg>{errMsg}</ErrorMsg> : <></>}
-        {isLoading ? (
-          <ErrorButton>...Loading</ErrorButton>
+            {errMsg ? <ErrorMsg>{errMsg}</ErrorMsg> : <></>}
+            {isLoading ? (
+              <ErrorButton>...Loading</ErrorButton>
+            ) : (
+              <>
+                <Button type='submit'>Sign In</Button>
+                <Link to='/register'>Register</Link>
+              </>
+            )}
+          </Form>
         ) : (
-          <>
-            <Button type='submit'>Sign In</Button>
-            <Link to='/register'>Register</Link>
-          </>
+          <></>
         )}
-      </Form>
-    </LoginWrapper>
+      </LoginWrapper>
+    </>
   );
 };
 
@@ -104,6 +120,10 @@ const LoginWrapper = styled.section`
       display: flex;
       flex-direction: column;
     }
+  }
+
+  ${H2} {
+    color: ${(p) => p.theme.primary};
   }
 
   ${Button} {
