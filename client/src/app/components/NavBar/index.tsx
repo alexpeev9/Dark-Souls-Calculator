@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import Buttons from './Buttons';
+import CategoryList from './CategoryList';
 import Logo from './Logo';
 
 const NavBar = () => {
@@ -7,6 +8,7 @@ const NavBar = () => {
     <NavBarWrapper>
       <Logo />
       <Buttons />
+      <CategoryList />
     </NavBarWrapper>
   );
 };
