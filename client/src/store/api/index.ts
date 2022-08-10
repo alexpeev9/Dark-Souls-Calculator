@@ -8,13 +8,13 @@ const baseUrl =
 const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl,
+    baseUrl: baseUrl,
     credentials: 'include',
-    // prepareHeaders: (headers, { getState }) => {
-    //   headers.set('Content-Type', 'application/json');
-    //   headers.set('Access-Control-Allow-Origin', 'http://localhost:5000');
-    //   return headers;
-    // },
+    prepareHeaders: (headers, { getState }) => {
+      headers.set('Content-Type', 'application/json');
+      headers.set('Access-Control-Allow-Origin', baseUrl);
+      return headers;
+    },
   }),
   tagTypes: ['Category', 'Weapon', 'User'],
   endpoints: (builder) => ({}),
