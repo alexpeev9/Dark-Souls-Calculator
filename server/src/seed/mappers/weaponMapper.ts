@@ -10,7 +10,8 @@ const categoryMapper = async (): Promise<void> => {
     let weaponEntity = new Weapon(weaponData);
     weaponEntity.customId = weaponData.name.toLowerCase().split(' ').join('-');
     weaponEntity.imageUrl =
-      weaponData.name.toLowerCase().split(' ').join('_') + '.png';
+      weaponData.name.toLowerCase().split(' ').join('_').replace("'", '') +
+      '.png';
     await weaponEntity.save();
   }
 };

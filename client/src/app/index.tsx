@@ -7,6 +7,8 @@ import RegisterPage from './pages/auth/RegisterPage';
 
 import HomePage from './pages/commons/HomePage';
 import NotFoundPage from './pages/commons/NotFoundPage';
+import WeaponDetailsPage from './pages/weapons/WeaponDetailsPage';
+import WeaponListPage from './pages/weapons/WeaponListPage';
 
 const App = () => {
   return (
@@ -22,6 +24,10 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
+
+        <Route path=':categoryName' element={<WeaponListPage />}>
+          <Route path=':weaponName' element={<WeaponDetailsPage />} />
+        </Route>
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

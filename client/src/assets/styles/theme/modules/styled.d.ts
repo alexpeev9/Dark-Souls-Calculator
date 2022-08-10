@@ -1,6 +1,6 @@
-import 'styled-components';
+import 'styled-components/macro';
 import { Theme } from '../theme';
 
-declare module 'styled-components' {
+declare module 'styled-components/macro' {
   export interface DefaultTheme extends Theme {}
 }
