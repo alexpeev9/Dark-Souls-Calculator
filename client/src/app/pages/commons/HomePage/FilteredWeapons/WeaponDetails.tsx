@@ -1,5 +1,5 @@
 import { Link as ReactLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 const WeaponDetails = ({ weapon, categoryId }: any) => {
   let image;
@@ -10,7 +10,7 @@ const WeaponDetails = ({ weapon, categoryId }: any) => {
   }
   return (
     <TableRowWrapper>
-      <Link to={categoryId + '/' + weapon.id}>
+      <Link to={categoryId + '/' + weapon.customId}>
         <ImageElement
           src={image}
           alt='img'

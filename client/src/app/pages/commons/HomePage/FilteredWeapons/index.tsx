@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { useSelector } from 'react-redux';
 
 import {
@@ -51,7 +51,7 @@ const FilteredWeapons = () => {
               <WeaponDetails
                 key={i}
                 weapon={weapon}
-                categoryId={currentCategory.id}
+                categoryId={currentCategory.customId}
               />
             ))}
           </WeaponSectionElement>

@@ -4,5 +4,4 @@ const errorHandler = (err: any) =>
     : err.data
     ? err.data[0] /* Only first Error From API*/
     : err.error; /* Error From Browser*/
-
 export default errorHandler;

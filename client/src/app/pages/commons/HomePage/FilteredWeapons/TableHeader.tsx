@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { useDispatch } from 'react-redux';
 import { sortWeapons } from '../../../../../store/slices/filteredWeaponsSlice';
 import { StrengthIcon } from '../../../../../assets/images/icons/requirements';

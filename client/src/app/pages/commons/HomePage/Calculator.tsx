@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
-import { useSearchWeaponsMutation } from '../../../../store/api/weaponEndpoints';
+import { useSearchAllWeaponsMutation } from '../../../../store/api/weaponEndpoints';
 import { setWeapons } from '../../../../store/slices/filteredWeaponsSlice';
 import {
   selectStrength,
@@ -31,13 +31,13 @@ const Calculator = () => {
   );
   const dispatch = useDispatch();
 
-  const [searchWeapons] = useSearchWeaponsMutation();
+  const [searchAllWeapons] = useSearchAllWeaponsMutation();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     try {
-      const data = await searchWeapons({
+      const data = await searchAllWeapons({
         strength,
         dexterity,
         faith,
@@ -50,10 +50,11 @@ const Calculator = () => {
     }
   };
 
-  const handleStrengthInput = (e: any) => setStrength(e.target.value);
-  const handleDexterityInput = (e: any) => setDexterity(e.target.value);
-  const handleIntelligenceInput = (e: any) => setIntelligence(e.target.value);
-  const handleFaithInput = (e: any) => setFaith(e.target.value);
+  const handleStrengthInput = (e: any) => setStrength(Number(e.target.value));
+  const handleDexterityInput = (e: any) => setDexterity(Number(e.target.value));
+  const handleIntelligenceInput = (e: any) =>
+    setIntelligence(Number(e.target.value));
+  const handleFaithInput = (e: any) => setFaith(Number(e.target.value));
 
   return (
     <>
