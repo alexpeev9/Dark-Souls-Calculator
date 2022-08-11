@@ -23,6 +23,7 @@ const CategoryList = () => {
   } else if (isSuccess) {
     content = categories.map((category: any, i: any) => (
       <LinkElement
+        key={i}
         to={`/${category?.customId}`}
         className={getClassActive(category.customId)}
       >
@@ -35,7 +36,7 @@ const CategoryList = () => {
 
   return (
     <CategoriesWrapper>
-      <SideTitle>Weapon Categories</SideTitle>
+      {/* <SideTitle>Weapon Categories</SideTitle> */}
       {content}
     </CategoriesWrapper>
   );
@@ -43,24 +44,17 @@ const CategoryList = () => {
 
 export default CategoryList;
 
-const SideTitle = styled.h1`
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 0.5rem 0;
-  text-decoration: underline;
-`;
-
 const CategoriesWrapper = styled.section`
   ::-webkit-scrollbar {
     width: 2rem;
-    border: solid #414855;
+    border: solid ${(p) => p.theme.secondary};
     border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
     border-radius: 1rem;
   }
   ::-webkit-scrollbar-thumb {
     height: 5rem;
-    background-color: #414855;
-    border: 0.2rem solid #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    border: 0.2rem solid ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
@@ -68,9 +62,9 @@ const CategoriesWrapper = styled.section`
   margin: 0.7rem 0.7rem 0.7rem 0.7rem;
   padding: 0.3rem;
   border-radius: 1rem;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     height: 13.1rem;
     margin: 0rem;
     padding: 1rem 0rem;
@@ -82,8 +76,14 @@ const CategoriesWrapper = styled.section`
   }
 `;
 
+// const SideTitle = styled.h1`
+//   text-align: center;
+//   font-size: 1.5rem;
+//   margin: 0.5rem 0;
+//   text-decoration: underline;
+// `;
+
 const LinkElement = styled(Link)`
-  width: 9rem;
   display: block;
   color: black;
   margin: 0.1rem;
@@ -91,15 +91,15 @@ const LinkElement = styled(Link)`
   border-radius: 20px;
   text-decoration: none;
   &.active {
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
   }
   &:hover:not(.active) {
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     text-align: center;
     width: 100%;
     margin: 0.1rem 0;

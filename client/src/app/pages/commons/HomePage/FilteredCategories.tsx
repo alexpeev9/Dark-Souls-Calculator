@@ -7,6 +7,7 @@ import {
   selectFilteredCategories,
   setCurrent,
 } from '../../../../store/slices/filteredWeaponsSlice';
+import H2 from '../../../components/H2';
 import FilteredWeapons from './FilteredWeapons';
 
 const FilteredCategories = () => {
@@ -36,7 +37,7 @@ const FilteredCategories = () => {
   return categories ? (
     <ResultWrapper>
       <FilterWrapper>
-        <FilteredTitle>Filtered Weapons:</FilteredTitle>
+        <H2>Filtered Weapons:</H2>
         <ButtonSection>
           {categories.map((category: any, i: any) => (
             <ButtonElement
@@ -64,14 +65,13 @@ const FilteredCategories = () => {
 
 export default FilteredCategories;
 
-const ResultWrapper = styled.section`
+const ResultWrapper = styled.aside`
   width: 100%;
   display: flex;
   flex-direction: row;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     flex-direction: column;
-    /* flex-grow: 100; */
     width: 100%;
   }
 `;
@@ -82,34 +82,22 @@ const FilterWrapper = styled.article`
   width: 18rem;
   display: flex;
   flex-direction: column;
-  background-color: #414855;
+  background-color: ${(p) => p.theme.secondary};
   font-family: 'Optimus Princeps';
   opacity: 90%;
   padding: 0 1.5rem 0 1.5rem;
-
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     height: 42vh;
     width: 100%;
     padding: 0;
   }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     padding: 0;
     width: auto;
   }
-`;
 
-const FilteredTitle = styled.h1`
-  font-size: 2rem;
-  margin: 1rem 0 1rem 0;
-  color: #f2b524;
-  @media only screen and (max-width: 900px) {
-    background-color: #f2b524;
-    color: black;
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
+  ${H2} {
+    color: ${(p) => p.theme.primary};
   }
 `;
 
@@ -118,28 +106,28 @@ const ButtonSection = styled.section`
   margin: 0.7rem 0.7rem 0.7rem 0.7rem;
   padding: 0.3rem;
   border-radius: 1rem;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
 
   ::-webkit-scrollbar {
     width: 2rem;
-    border: solid #414855;
+    border: solid ${(p) => p.theme.secondary};
     border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
     border-radius: 1rem;
   }
   ::-webkit-scrollbar-thumb {
     height: 5rem;
-    background-color: #414855;
-    border: 0.2rem solid #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    border: 0.2rem solid ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     padding: 0;
     margin: 0 0 1rem 0;
     width: 90%;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     border-radius: 0;
     margin: 0rem;
     padding: 1rem 0rem;
@@ -159,23 +147,23 @@ const ButtonElement = styled.button`
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0.8rem 0;
-  border: 0.3rem solid #f2b524;
+  border: 0.3rem solid ${(p) => p.theme.primary};
 
   &:hover {
     cursor: pointer;
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
   &.active {
     cursor: pointer;
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     width: 100%;
     padding: 0.2rem 0;
   }
@@ -183,8 +171,9 @@ const ButtonElement = styled.button`
 
 const ImageElement = styled.img``;
 
-const ElementTitle = styled.p`
-  padding: 0;
+const ElementTitle = styled.h3`
+  padding: 0 0 0 0.5rem;
   margin: 0;
   text-align: left;
+  font-size: 1.5rem;
 `;

@@ -7,6 +7,7 @@ import {
 } from '../../../../../store/slices/filteredWeaponsSlice';
 import TableHeader from './TableHeader';
 import WeaponDetails from './WeaponDetails';
+import H2 from '../../../../components/H2';
 
 const FilteredWeapons = () => {
   const currentCategory: any = useSelector(selectCurrent);
@@ -17,8 +18,8 @@ const FilteredWeapons = () => {
       {currentCategory && sortedCategory ? (
         <WeaponSectionWrapper>
           <NavigationSection>
-            <NavigationTitle>{currentCategory.name}:</NavigationTitle>
-            <NavigationWrapper>
+            <H2>{currentCategory.name}:</H2>
+            <ButtonWrapper>
               <TableHeader
                 requirement={'name'}
                 shortName={'Weapon'}
@@ -44,7 +45,7 @@ const FilteredWeapons = () => {
                 shortName={'FAITH'}
                 sortedCategory={sortedCategory}
               />
-            </NavigationWrapper>
+            </ButtonWrapper>
           </NavigationSection>
           <WeaponSectionElement>
             {currentCategory.weapons.map((weapon: any, i: any) => (
@@ -73,14 +74,14 @@ const WeaponSectionWrapper = styled.section`
   flex-direction: column;
   justify-content: top;
   opacity: 90%;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
   padding: 0;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     height: 58vh;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     padding-top: 2rem;
     justify-content: center;
     display: flex;
@@ -91,24 +92,21 @@ const WeaponSectionWrapper = styled.section`
 const NavigationSection = styled.section`
   padding: 0;
   margin: 0;
-`;
-const NavigationTitle = styled.h3`
-  padding: 1rem 0 1rem;
-  margin: 0;
-  text-align: center;
-
-  @media only screen and (max-width: 900px) {
-    display: none;
+  @media only screen and (max-width: 1000px) {
+    ${H2} {
+      display: none;
+    }
   }
 `;
-const NavigationWrapper = styled.section`
-  background-color: #414855;
+
+const ButtonWrapper = styled.span`
+  background-color: ${(p) => p.theme.secondary};
   margin: 0 2.5rem 0 2.5rem;
   padding: 0.7rem 0;
   border-radius: 1.5rem 1.5rem 0 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     padding-top: 0;
     display: flex;
     flex-direction: column;
@@ -122,25 +120,25 @@ const NavigationWrapper = styled.section`
 const WeaponSectionElement = styled.section`
   overflow: auto;
   margin: 0 2.5rem 1.5rem 2.5rem;
-  border: solid #414855;
+  border: solid ${(p) => p.theme.secondary};
   border-width: 0 0.5rem 0.5rem 0.5rem;
   border-radius: 0 0 1rem 1rem;
 
   ::-webkit-scrollbar {
-    background-color: #f2b524;
+    background-color: ${(p) => p.theme.primary};
     width: 2rem;
-    border: solid #414855;
+    border: solid ${(p) => p.theme.secondary};
     border-radius: 1rem;
     border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
   }
   ::-webkit-scrollbar-thumb {
     height: 5rem;
-    background-color: #414855;
+    background-color: ${(p) => p.theme.secondary};
     border-radius: 1rem;
-    border: solid #f2b524;
+    border: solid ${(p) => p.theme.primary};
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     border-width: 0.5rem 0.5rem 0.5rem 0.5rem;
     border-radius: 0 1rem 1rem 0;
     margin: 0;

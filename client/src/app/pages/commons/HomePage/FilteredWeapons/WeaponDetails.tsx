@@ -65,7 +65,7 @@ const Link = styled(ReactLink)`
   text-decoration: none;
   &:hover {
     text-decoration: underline;
-    background-color: #414855;
+    background-color: ${(p) => p.theme.secondary};
     border-radius: 1rem;
   }
 `;
