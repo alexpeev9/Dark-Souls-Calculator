@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useGetWeaponsByCategoryQuery } from '../../../../store/api/weaponEndpoints';
+import ErrorBox from '../../../components/ErrorMsg/ErrorBox';
 import Buttons from './Buttons';
 
 const WeaponListPage = () => {
@@ -26,7 +27,7 @@ const WeaponListPage = () => {
       </CategoryDetails>
     );
   } else if (isError) {
-    content = <p>{error}</p>;
+    content = <ErrorBox error={error} />;
   }
 
   return (
@@ -60,7 +61,7 @@ const ResultWrapper = styled.section`
   }
 `;
 
-const CategoryDetails = styled.article`
+const CategoryDetails = styled.main`
   align-items: center;
   height: 100vh;
   width: 17.3rem;
@@ -77,7 +78,7 @@ const CategoryDetails = styled.article`
   }
 `;
 
-const FilteredTitle = styled.h1`
+const FilteredTitle = styled.h2`
   font-size: 2rem;
   margin: 1rem 0 1rem 0;
   color: black;

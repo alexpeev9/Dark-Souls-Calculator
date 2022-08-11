@@ -21,6 +21,7 @@ import {
 } from '../../../../assets/images/icons/requirements';
 import CalculatorField from './CalculatorField';
 import FilteredCategories from './FilteredCategories';
+import ErrorBox from '../../../components/ErrorMsg/ErrorBox';
 
 const Calculator = () => {
   const [strength, setStrength] = useState(useSelector(selectStrength));
@@ -31,7 +32,8 @@ const Calculator = () => {
   );
   const dispatch = useDispatch();
 
-  const [searchAllWeapons] = useSearchAllWeaponsMutation();
+  const [searchAllWeapons, { isLoading, isSuccess, isError, error }] =
+    useSearchAllWeaponsMutation();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -56,6 +58,16 @@ const Calculator = () => {
     setIntelligence(Number(e.target.value));
   const handleFaithInput = (e: any) => setFaith(Number(e.target.value));
 
+  let content = <></>;
+  if (isLoading) {
+    content = <></>;
+  } else if (isSuccess) {
+    content = <FilteredCategories />;
+  } else if (isError) {
+    content = <></>;
+    content = <ErrorBox error={error} />;
+  }
+
   return (
     <>
       <CalculatorWrapper>
@@ -64,35 +76,28 @@ const Calculator = () => {
           <CalculatorParagraph>
             Add your build and the calculator will filter all the weapons you
             can wield.
-            {/* Welcome to the Dark Souls Calculator. Here, you can put your current
-    or future build, and the calculator will filter all the weapons you
-    can carry. */}
           </CalculatorParagraph>
         </CalculatorArticle>
         <FormWrapper onSubmit={handleSubmit}>
           <ButtonElement type='submit'>Filter</ButtonElement>
-
           <CalculatorField
             name='Strength'
             value={strength}
             onInputChange={handleStrengthInput}
             Icon={StrengthIcon}
           />
-
           <CalculatorField
             name='Dexterity'
             value={dexterity}
             onInputChange={handleDexterityInput}
             Icon={DexterityIcon}
           />
-
           <CalculatorField
             name='Intelligence'
             value={intelligence}
             onInputChange={handleIntelligenceInput}
             Icon={IntelligenceIcon}
           />
-
           <CalculatorField
             name='Faith'
             value={faith}
@@ -101,7 +106,7 @@ const Calculator = () => {
           />
         </FormWrapper>
       </CalculatorWrapper>
-      <FilteredCategories />
+      {content}
     </>
   );
 };
@@ -109,7 +114,7 @@ const Calculator = () => {
 export default Calculator;
 
 const CalculatorWrapper = styled.main`
-  width: 29rem;
+  width: min-content;
   align-items: center;
   height: 100vh;
   font-family: 'Optimus Princeps SemiBold';

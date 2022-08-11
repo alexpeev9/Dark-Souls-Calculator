@@ -133,7 +133,7 @@ const RegisterWrapper = styled.section`
 
   ${Form} {
     border-radius: 1rem;
-    margin: 1rem;
+    margin: 0 0.9rem;
     @media only screen and (max-width: 1000px) {
       width: min-content;
       display: flex;

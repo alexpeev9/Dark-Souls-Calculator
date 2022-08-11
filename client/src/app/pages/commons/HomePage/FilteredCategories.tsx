@@ -7,6 +7,7 @@ import {
   selectFilteredCategories,
   setCurrent,
 } from '../../../../store/slices/filteredWeaponsSlice';
+import H2 from '../../../components/H2';
 import FilteredWeapons from './FilteredWeapons';
 
 const FilteredCategories = () => {
@@ -36,7 +37,7 @@ const FilteredCategories = () => {
   return categories ? (
     <ResultWrapper>
       <FilterWrapper>
-        <FilteredTitle>Filtered Weapons:</FilteredTitle>
+        <H2>Filtered Weapons:</H2>
         <ButtonSection>
           {categories.map((category: any, i: any) => (
             <ButtonElement
@@ -71,7 +72,6 @@ const ResultWrapper = styled.aside`
 
   @media only screen and (max-width: 1600px) {
     flex-direction: column;
-    /* flex-grow: 100; */
     width: 100%;
   }
 `;
@@ -86,7 +86,6 @@ const FilterWrapper = styled.article`
   font-family: 'Optimus Princeps';
   opacity: 90%;
   padding: 0 1.5rem 0 1.5rem;
-
   @media only screen and (max-width: 1600px) {
     height: 42vh;
     width: 100%;
@@ -96,20 +95,9 @@ const FilterWrapper = styled.article`
     padding: 0;
     width: auto;
   }
-`;
 
-const FilteredTitle = styled.h1`
-  font-size: 2rem;
-  margin: 1rem 0 1rem 0;
-  color: #f2b524;
-  @media only screen and (max-width: 1000px) {
-    background-color: #f2b524;
-    color: black;
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
+  ${H2} {
+    color: ${(p) => p.theme.primary};
   }
 `;
 
@@ -184,7 +172,7 @@ const ButtonElement = styled.button`
 const ImageElement = styled.img``;
 
 const ElementTitle = styled.h3`
-  padding: 0;
+  padding: 0 0 0 0.5rem;
   margin: 0;
   text-align: left;
   font-size: 1.5rem;

@@ -48,7 +48,7 @@ const SecondTitle = styled.h3`
   text-align: center;
 `;
 
-const InfoWrapper = styled.section`
+const InfoWrapper = styled.article`
   background-color: #f2b524;
   margin: 1rem;
   padding: 1rem;
@@ -56,7 +56,7 @@ const InfoWrapper = styled.section`
   border-radius: 1rem;
 `;
 
-const RequirementsWrapper = styled.section`
+const RequirementsWrapper = styled.span`
   display: grid;
   grid-auto-flow: column;
   @media only screen and (max-width: 700px) {

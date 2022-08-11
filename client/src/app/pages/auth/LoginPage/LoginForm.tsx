@@ -110,7 +110,7 @@ const LoginWrapper = styled.section`
   ${Form} {
     width: min-content;
     border-radius: 1rem;
-    margin: 1rem;
+    margin: 0 0.9rem;
     @media only screen and (max-width: 1000px) {
       display: flex;
       flex-direction: column;

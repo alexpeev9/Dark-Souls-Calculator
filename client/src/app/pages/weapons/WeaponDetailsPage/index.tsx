@@ -1,30 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { useGetWeaponDetailsQuery } from '../../../../store/api/weaponEndpoints';
-import {
-  FireIcon,
-  LightningIcon,
-  MagicIcon,
-  PhysicalIcon,
-} from '../../../../assets/images/icons/damage';
-import {
-  AttackTypeIcon,
-  DurabilityIcon,
-  WeightIcon,
-} from '../../../../assets/images/icons/stats';
-import {
-  StrengthIcon,
-  DexterityIcon,
-  IntelligenceIcon,
-} from '../../../../assets/images/icons/requirements';
-
-import styled from 'styled-components/macro';
-import ErrorMsg from '../../../components/ErrorMsg';
-import errorHandler from '../../../utils/errorHandler';
 import { Helmet } from 'react-helmet-async';
+import styled from 'styled-components/macro';
+
+import { useGetWeaponDetailsQuery } from '../../../../store/api/weaponEndpoints';
+
 import WeaponImage from './WeaponImage';
 import GeneralInfo from './WeaponInfo/GeneralInfo';
 import DamageInfo from './WeaponInfo/DamageInfo';
 import RequirementInfo from './RequirementInfo';
+import ErrorBox from '../../../components/ErrorMsg/ErrorBox';
 
 const WeaponDetailsPage = () => {
   const { categoryName, weaponName } = useParams();
@@ -40,7 +24,7 @@ const WeaponDetailsPage = () => {
   });
   let content = <></>;
   if (isLoading) {
-    content = <p>"Loading..."</p>;
+    content = <></>;
   } else if (isSuccess) {
     content = (
       <>
@@ -69,12 +53,29 @@ const WeaponDetailsPage = () => {
       </>
     );
   } else if (isError) {
-    content = <ErrorMsg>{errorHandler(error)}</ErrorMsg>;
+    content = <ErrorBox error={error} />;
   }
   return content;
 };
 
 export default WeaponDetailsPage;
+
+const DetailsWrapper = styled.footer`
+  width: 50%;
+  background-color: #414855;
+  font-family: 'Optimus Princeps';
+  padding: 5rem 1.5rem 0rem 1.5rem;
+
+  @media only screen and (max-width: 1600px) {
+    width: 100%;
+    height: 58vh;
+    padding: 0;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: auto;
+    height: auto;
+  }
+`;
 
 const DetailsInfo = styled.section`
   @media only screen and (max-width: 1600px) {
@@ -117,22 +118,5 @@ const InfoTwoWrapper = styled.section`
 
   @media only screen and (max-width: 1000px) {
     flex-direction: column;
-  }
-`;
-
-const DetailsWrapper = styled.section`
-  width: 50%;
-  background-color: #414855;
-  font-family: 'Optimus Princeps';
-  padding: 5rem 1.5rem 0rem 1.5rem;
-
-  @media only screen and (max-width: 1600px) {
-    width: 100%;
-    height: 58vh;
-    padding: 0;
-  }
-  @media only screen and (max-width: 1000px) {
-    width: auto;
-    height: auto;
   }
 `;

@@ -34,8 +34,8 @@ const ImageSection = styled.section`
 `;
 
 const ImageElement = styled.img`
-  width: 10rem;
-  height: 10rem;
+  width: 7rem;
+  height: 7rem;
   background-color: #414855;
   border: 0.3rem solid #f2b524;
 

@@ -87,6 +87,9 @@ const ButtonElement = styled(Link)`
     color: black;
     border-radius: 1rem;
     text-decoration: underline;
+    @media only screen and (max-width: 1600px) {
+      border-radius: 0;
+    }
   }
 
   &.active {
@@ -95,6 +98,9 @@ const ButtonElement = styled(Link)`
     color: black;
     text-decoration: underline;
     border-radius: 1rem;
+    @media only screen and (max-width: 1600px) {
+      border-radius: 0;
+    }
   }
 
   @media only screen and (max-width: 1600px) {

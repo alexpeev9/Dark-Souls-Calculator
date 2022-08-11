@@ -16,6 +16,7 @@ const NavBar = () => {
 export default NavBar;
 
 const NavBarWrapper = styled.nav`
+  width: 16rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +26,6 @@ const NavBarWrapper = styled.nav`
 
   @media only screen and (max-width: 1600px) {
     grid-area: nav;
-    width: min-content;
     align-items: normal;
   }
 

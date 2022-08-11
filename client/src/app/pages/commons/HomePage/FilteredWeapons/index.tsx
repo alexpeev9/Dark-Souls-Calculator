@@ -7,6 +7,7 @@ import {
 } from '../../../../../store/slices/filteredWeaponsSlice';
 import TableHeader from './TableHeader';
 import WeaponDetails from './WeaponDetails';
+import H2 from '../../../../components/H2';
 
 const FilteredWeapons = () => {
   const currentCategory: any = useSelector(selectCurrent);
@@ -17,7 +18,7 @@ const FilteredWeapons = () => {
       {currentCategory && sortedCategory ? (
         <WeaponSectionWrapper>
           <NavigationSection>
-            <NavigationTitle>{currentCategory.name}:</NavigationTitle>
+            <H2>{currentCategory.name}:</H2>
             <ButtonWrapper>
               <TableHeader
                 requirement={'name'}
@@ -91,17 +92,13 @@ const WeaponSectionWrapper = styled.section`
 const NavigationSection = styled.section`
   padding: 0;
   margin: 0;
-`;
-const NavigationTitle = styled.h2`
-  font-size: 2rem;
-  padding: 1rem 0 1rem;
-  margin: 0;
-  text-align: center;
-
   @media only screen and (max-width: 1000px) {
-    display: none;
+    ${H2} {
+      display: none;
+    }
   }
 `;
+
 const ButtonWrapper = styled.span`
   background-color: #414855;
   margin: 0 2.5rem 0 2.5rem;
