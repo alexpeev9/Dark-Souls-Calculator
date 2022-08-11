@@ -46,11 +46,11 @@ const ButtonElement = styled.button`
 
   &:hover {
     cursor: pointer;
-    color: #f2b524;
+    color: ${(p) => p.theme.primary};
   }
 
   &.active {
-    color: #f2b524;
+    color: ${(p) => p.theme.primary};
   }
 
   @media only screen and (max-width: 1000px) {

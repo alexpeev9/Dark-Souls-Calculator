@@ -38,18 +38,18 @@ const ButtonSection = styled.section`
   margin: 0.7rem 0.7rem 0.7rem 0.7rem;
   padding: 0.3rem;
   border-radius: 1rem;
-  background-color: #414855;
+  background-color: ${(p) => p.theme.secondary};
 
   ::-webkit-scrollbar {
     width: 2rem;
-    border: solid #f2b524;
+    border: solid ${(p) => p.theme.primary};
     border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
     border-radius: 1rem;
   }
   ::-webkit-scrollbar-thumb {
     height: 5rem;
-    background-color: #f2b524;
-    border: 0.2rem solid #414855;
+    background-color: ${(p) => p.theme.primary};
+    border: 0.2rem solid ${(p) => p.theme.secondary};
     border-radius: 1rem;
   }
 
@@ -83,7 +83,7 @@ const ButtonElement = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    background-color: #f2b524;
+    background-color: ${(p) => p.theme.primary};
     color: black;
     border-radius: 1rem;
     text-decoration: underline;
@@ -94,7 +94,7 @@ const ButtonElement = styled(Link)`
 
   &.active {
     cursor: pointer;
-    background-color: #f2b524;
+    background-color: ${(p) => p.theme.primary};
     color: black;
     text-decoration: underline;
     border-radius: 1rem;
@@ -110,16 +110,16 @@ const ButtonElement = styled(Link)`
 `;
 
 const ImageElement = styled.img`
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
   margin: 0 0.7rem;
   border-radius: 1rem;
 
   ${ButtonElement}:hover & {
-    background-color: #414855;
+    background-color: ${(p) => p.theme.secondary};
   }
 
   ${ButtonElement}.active & {
-    background-color: #414855;
+    background-color: ${(p) => p.theme.secondary};
   }
 `;
 

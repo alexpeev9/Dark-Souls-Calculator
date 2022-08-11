@@ -36,14 +36,14 @@ const ImageSection = styled.section`
 const ImageElement = styled.img`
   width: 7rem;
   height: 7rem;
-  background-color: #414855;
-  border: 0.3rem solid #f2b524;
+  background-color: ${(p) => p.theme.secondary};
+  border: 0.3rem solid ${(p) => p.theme.primary};
 
   border-radius: 1rem;
 
   &:hover {
-    background-color: #f2b524;
-    border: 0.3rem solid #414855;
+    background-color: ${(p) => p.theme.primary};
+    border: 0.3rem solid ${(p) => p.theme.secondary};
   }
 `;
 

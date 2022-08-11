@@ -67,7 +67,7 @@ const CategoryDetails = styled.main`
   width: 17.3rem;
   display: flex;
   flex-direction: column;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
   font-family: 'Optimus Princeps';
   padding: 0 1.5rem 0 1.5rem;
 

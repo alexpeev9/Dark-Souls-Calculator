@@ -91,12 +91,12 @@ const LinkElement = styled(Link)`
   border-radius: 20px;
   text-decoration: none;
   &.active {
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
   }
   &:hover:not(.active) {
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
   }
 
   @media only screen and (max-width: 1000px) {

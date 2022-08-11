@@ -49,7 +49,7 @@ const SecondTitle = styled.h3`
 `;
 
 const InfoWrapper = styled.article`
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
   margin: 1rem;
   padding: 1rem;
   padding: 0.5rem;

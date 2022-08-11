@@ -82,7 +82,7 @@ const FilterWrapper = styled.article`
   width: 18rem;
   display: flex;
   flex-direction: column;
-  background-color: #414855;
+  background-color: ${(p) => p.theme.secondary};
   font-family: 'Optimus Princeps';
   opacity: 90%;
   padding: 0 1.5rem 0 1.5rem;
@@ -106,18 +106,18 @@ const ButtonSection = styled.section`
   margin: 0.7rem 0.7rem 0.7rem 0.7rem;
   padding: 0.3rem;
   border-radius: 1rem;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
 
   ::-webkit-scrollbar {
     width: 2rem;
-    border: solid #414855;
+    border: solid ${(p) => p.theme.secondary};
     border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
     border-radius: 1rem;
   }
   ::-webkit-scrollbar-thumb {
     height: 5rem;
-    background-color: #414855;
-    border: 0.2rem solid #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    border: 0.2rem solid ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
@@ -147,19 +147,19 @@ const ButtonElement = styled.button`
   font-size: 1.5rem;
   font-weight: bold;
   padding: 0.8rem 0;
-  border: 0.3rem solid #f2b524;
+  border: 0.3rem solid ${(p) => p.theme.primary};
 
   &:hover {
     cursor: pointer;
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 
   &.active {
     cursor: pointer;
-    background-color: #414855;
-    color: #f2b524;
+    background-color: ${(p) => p.theme.secondary};
+    color: ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
 

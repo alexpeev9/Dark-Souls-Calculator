@@ -62,7 +62,7 @@ export default WeaponDetailsPage;
 
 const DetailsWrapper = styled.footer`
   width: 50%;
-  background-color: #414855;
+  background-color: ${(p) => p.theme.secondary};
   font-family: 'Optimus Princeps';
   padding: 5rem 1.5rem 0rem 1.5rem;
 
@@ -81,24 +81,24 @@ const DetailsInfo = styled.section`
   @media only screen and (max-width: 1600px) {
     height: 95%;
     margin: 1rem 2rem 0.5rem 2.5rem;
-    background-color: #f2b524;
+    background-color: ${(p) => p.theme.primary};
     border-radius: 1rem;
   }
   @media only screen and (max-height: 1000px) and (min-width: 1000px) {
     overflow: auto;
 
     ::-webkit-scrollbar {
-      background-color: #f2b524;
+      background-color: ${(p) => p.theme.primary};
       width: 2rem;
-      border: solid #414855;
+      border: solid ${(p) => p.theme.secondary};
       border-radius: 1rem;
       border-width: 0.3rem 0.2rem 0.2rem 0.2rem;
     }
     ::-webkit-scrollbar-thumb {
       height: 5rem;
-      background-color: #414855;
+      background-color: ${(p) => p.theme.secondary};
       border-radius: 1rem;
-      border: solid #f2b524;
+      border: solid ${(p) => p.theme.primary};
     }
   }
 `;
@@ -108,7 +108,7 @@ const InformationWrapper = styled.section`
   flex-direction: column;
   padding: 1rem;
   margin: 1rem;
-  background-color: #f2b524;
+  background-color: ${(p) => p.theme.primary};
   border-radius: 1rem;
 `;
 

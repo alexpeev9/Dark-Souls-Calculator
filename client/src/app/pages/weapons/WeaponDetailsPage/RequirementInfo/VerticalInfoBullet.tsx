@@ -15,13 +15,13 @@ export default VerticalInfoBullet;
 
 const VerticalInfoBox = styled.section`
   padding: 0.5rem;
-  color: #f2b524;
-  background-color: #414855;
+  color: ${(p) => p.theme.primary};
+  background-color: ${(p) => p.theme.secondary};
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  border: 3px solid #f2b524;
+  border: 3px solid ${(p) => p.theme.primary};
   border-inline-style: solid;
   border-radius: 20px;
 `;
