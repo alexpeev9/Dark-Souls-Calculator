@@ -108,7 +108,7 @@ const Calculator = () => {
 
 export default Calculator;
 
-const CalculatorWrapper = styled.article`
+const CalculatorWrapper = styled.main`
   width: 29rem;
   align-items: center;
   height: 100vh;
@@ -120,11 +120,11 @@ const CalculatorWrapper = styled.article`
   padding-top: 2rem;
   padding: 0 0.8rem;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     width: min-content;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     padding: 0;
     width: 100%;
     height: min-content;
@@ -136,7 +136,7 @@ const CalculatorArticle = styled.article`
   margin: 0;
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -152,7 +152,7 @@ const CalculatorTitle = styled.h1`
 const CalculatorParagraph = styled.p`
   margin: 0;
   margin: 0 0.5rem 0.5rem 0.5rem;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 50%;
   }
 `;
@@ -166,7 +166,7 @@ const FormWrapper = styled.form`
   padding: 1rem 0rem 1rem 0;
   height: max-content;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     width: max-content;
     overflow: auto;
 
@@ -184,7 +184,7 @@ const FormWrapper = styled.form`
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     display: grid;
     justify-content: center;
     align-items: center;
@@ -218,7 +218,7 @@ const ButtonElement = styled.button`
     border: 0.3rem solid #f2b524;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 100%;
     grid-area: button;
   }

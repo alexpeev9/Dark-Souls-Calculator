@@ -22,7 +22,7 @@ const LogoWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 100%;
   }
 

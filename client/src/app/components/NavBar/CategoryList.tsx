@@ -23,6 +23,7 @@ const CategoryList = () => {
   } else if (isSuccess) {
     content = categories.map((category: any, i: any) => (
       <LinkElement
+        key={i}
         to={`/${category?.customId}`}
         className={getClassActive(category.customId)}
       >
@@ -70,7 +71,7 @@ const CategoriesWrapper = styled.section`
   border-radius: 1rem;
   background-color: #f2b524;
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     height: 13.1rem;
     margin: 0rem;
     padding: 1rem 0rem;
@@ -99,7 +100,7 @@ const LinkElement = styled(Link)`
     color: #f2b524;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     text-align: center;
     width: 100%;
     margin: 0.1rem 0;

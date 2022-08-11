@@ -53,7 +53,7 @@ const ButtonElement = styled.button`
     color: #f2b524;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 9rem;
   }
 `;

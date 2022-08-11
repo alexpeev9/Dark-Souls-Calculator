@@ -53,13 +53,13 @@ const ButtonSection = styled.section`
     border-radius: 1rem;
   }
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     padding: 0;
     margin: 0 0 1rem 0;
-    width: 90%;
+    width: 94.4%;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     border-radius: 0;
     margin: 0rem;
     padding: 1rem 0rem;
@@ -97,7 +97,7 @@ const ButtonElement = styled(Link)`
     border-radius: 1rem;
   }
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     width: 100%;
     padding: 0.2rem 0;
   }

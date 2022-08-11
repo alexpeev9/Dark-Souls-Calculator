@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -29,10 +30,19 @@ const WeaponListPage = () => {
   }
 
   return (
-    <ResultWrapper>
-      {content}
-      <Outlet />
-    </ResultWrapper>
+    <>
+      <Helmet>
+        <title>{data?.name}</title>
+        <meta
+          name='description'
+          content='See the full list of weapons from that category!'
+        />
+      </Helmet>
+      <ResultWrapper>
+        {content}
+        <Outlet />
+      </ResultWrapper>
+    </>
   );
 };
 
@@ -42,8 +52,9 @@ const ResultWrapper = styled.section`
   width: 100%;
   display: flex;
   flex-direction: row;
+  opacity: 90%;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     flex-direction: column;
     width: 100%;
   }
@@ -57,10 +68,9 @@ const CategoryDetails = styled.article`
   flex-direction: column;
   background-color: #f2b524;
   font-family: 'Optimus Princeps';
-  opacity: 90%;
   padding: 0 1.5rem 0 1.5rem;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     height: 42vh;
     width: 100%;
     padding: 0;
@@ -72,8 +82,8 @@ const FilteredTitle = styled.h1`
   margin: 1rem 0 1rem 0;
   color: black;
   text-decoration: underline;
-  @media only screen and (max-width: 900px) {
-    background-color: #414855;
+  @media only screen and (max-width: 1000px) {
+    background-color: ${(p) => p.theme.secondary};
     color: black;
     border-radius: 1rem 1rem 0 0;
     width: 100%;

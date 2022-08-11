@@ -101,14 +101,17 @@ const LoginWrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
+    width: 100%;
+    height: max-content;
     align-items: normal;
   }
 
   ${Form} {
+    width: min-content;
     border-radius: 1rem;
     margin: 1rem;
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1000px) {
       display: flex;
       flex-direction: column;
     }

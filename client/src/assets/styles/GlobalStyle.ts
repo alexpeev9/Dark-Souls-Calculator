@@ -30,12 +30,13 @@ const GlobalStyle = createGlobalStyle`
       background-position: right;
     }
 
-    @media only screen and (max-width: 1500px) {
+    @media only screen and (max-width: 1600px) {
       flex-direction: row;
     }
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1000px) {
       flex-direction: column;
+      height: max-content;
     }
 
   }

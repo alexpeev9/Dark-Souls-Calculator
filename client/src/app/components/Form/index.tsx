@@ -9,7 +9,7 @@ const Form = styled.form`
   padding: 1rem 0rem 1rem 0;
   height: max-content;
 
-  @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1600px) {
     width: max-content;
     overflow: auto;
 
@@ -27,7 +27,7 @@ const Form = styled.form`
     }
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     display: grid;
     justify-content: center;
     align-items: center;

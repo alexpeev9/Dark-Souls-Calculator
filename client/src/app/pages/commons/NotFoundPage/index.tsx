@@ -28,7 +28,7 @@ const NotFoundWrapper = styled.article`
     width: 30rem;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     justify-content: start;
     height: 100%;
   }
