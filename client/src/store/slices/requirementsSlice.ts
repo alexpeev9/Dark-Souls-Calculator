@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const requirementsSlice = createSlice({
   name: 'requirements',
   initialState: {
-    strength: 12,
-    dexterity: 11,
+    strength: 15,
+    dexterity: 18,
     faith: 12,
-    intelligence: 13,
+    intelligence: 10,
   },
   reducers: {
     setRequirements: (state: any, action: any) => {

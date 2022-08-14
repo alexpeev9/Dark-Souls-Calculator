@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import Buttons from './Buttons';
 import CategoryList from './CategoryList';
 import Logo from './Logo';

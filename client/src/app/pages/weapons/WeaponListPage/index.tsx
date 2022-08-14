@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { useGetWeaponsByCategoryQuery } from '../../../../store/api/weaponEndpoints';
 import H2 from '../../../components/elements/H2';

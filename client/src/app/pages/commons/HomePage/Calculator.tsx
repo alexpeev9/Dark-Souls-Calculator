@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { useSearchAllWeaponsMutation } from '../../../../store/api/weaponEndpoints';
 import { setWeapons } from '../../../../store/slices/filteredWeaponsSlice';

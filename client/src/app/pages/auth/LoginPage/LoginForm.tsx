@@ -15,7 +15,7 @@ import {
   DurabilityIcon,
 } from '../../../../assets/images/icons/stats';
 import Link from '../../../components/elements/Link';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import H2 from '../../../components/elements/H2';
 import ErrorMsg from '../../../components/ErrorMsg';
 import Loading from '../../../components/Loading';
