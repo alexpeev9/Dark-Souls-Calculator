@@ -30,7 +30,7 @@ const NavBarWrapper = styled.nav`
   }
 
   @media only screen and (max-width: 1000px) {
-    height: 100%;
+    height: max-content;
     width: 100%;
   }
 `;

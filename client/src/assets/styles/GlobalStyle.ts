@@ -36,9 +36,11 @@ const GlobalStyle = createGlobalStyle`
 
     @media only screen and (max-width: 1000px) {
       flex-direction: column;
-      height: max-content;
+      height: 100%;
     }
-
+    @media only screen and (max-width: 1000px) {
+      background-image: none;
+    }
   }
   
   a {
