@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { NotFoundGif } from '../../../../assets/images/common';
 import H2 from '../../../components/elements/H2';

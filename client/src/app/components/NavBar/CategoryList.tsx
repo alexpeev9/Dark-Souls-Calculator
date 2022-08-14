@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { useGetCategoryListQuery } from '../../../store/api/categoryEndpoints';
 import errorHandler from '../../utils/errorHandler';

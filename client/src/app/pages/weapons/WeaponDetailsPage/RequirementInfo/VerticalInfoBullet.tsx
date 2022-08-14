@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const VerticalInfoBullet = ({ name, requirement, bonus, icon }: any) => {
   return (

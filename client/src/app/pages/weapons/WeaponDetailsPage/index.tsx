@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 import { useGetWeaponDetailsQuery } from '../../../../store/api/weaponEndpoints';
 

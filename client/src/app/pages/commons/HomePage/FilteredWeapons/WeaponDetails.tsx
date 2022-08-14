@@ -1,5 +1,5 @@
 import { Link as ReactLink } from 'react-router-dom';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const WeaponDetails = ({ weapon, categoryId }: any) => {
   let image;

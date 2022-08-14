@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import Article from '../../../components/elements/Article';
 import H2 from '../../../components/elements/H2';
 import P from '../../../components/elements/P';

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import Buttons from './Buttons';
 import CategoryList from './CategoryList';
 import Logo from './Logo';
@@ -30,7 +30,7 @@ const NavBarWrapper = styled.nav`
   }
 
   @media only screen and (max-width: 1000px) {
-    height: 100%;
+    height: max-content;
     width: 100%;
   }
 `;
