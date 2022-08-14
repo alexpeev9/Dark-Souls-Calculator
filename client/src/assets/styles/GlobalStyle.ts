@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
     }
     @media only screen and (max-width: 1000px) {
       background-image: none;
+      background-color: ${(p) => p.theme.primary};
     }
   }
   
