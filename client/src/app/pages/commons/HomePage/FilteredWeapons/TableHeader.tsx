@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { sortWeapons } from '../../../../../store/slices/filteredWeaponsSlice';
-import { StrengthIcon } from '../../../../../assets/images/icons/requirements';
+import P from '../../../../components/elements/P';
 
-const TableHeader = ({ requirement, shortName, sortedCategory }: any) => {
+const TableHeader = ({ requirement, shortName, sortedCategory, icon }: any) => {
   const { isAscValue, requirementValue } = sortedCategory;
 
   const dispatch = useDispatch();
@@ -24,8 +24,8 @@ const TableHeader = ({ requirement, shortName, sortedCategory }: any) => {
 
   return (
     <ButtonElement onClick={onButtonClickSort} className={getClassActive}>
-      <ImageIcon src={StrengthIcon} alt='Strength Icon' />
-      {title}
+      {icon ? <ImageIcon src={icon} alt='Icon' /> : <></>}
+      <P>{title}</P>
     </ButtonElement>
   );
 };
@@ -53,8 +53,12 @@ const ButtonElement = styled.button`
     color: ${(p) => p.theme.primary};
   }
 
-  @media only screen and (max-width: 1000px) {
-    width: 9rem;
+  ${P} {
+    padding: 0;
+    margin: 0;
+    @media only screen and (max-width: 1000px) {
+      display: none;
+    }
   }
 `;
 

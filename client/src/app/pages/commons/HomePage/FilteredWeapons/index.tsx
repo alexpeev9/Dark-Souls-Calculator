@@ -8,6 +8,12 @@ import {
 import TableHeader from './TableHeader';
 import WeaponDetails from './WeaponDetails';
 import H2 from '../../../../components/elements/H2';
+import {
+  DexterityIcon,
+  FaithIcon,
+  IntelligenceIcon,
+  StrengthIcon,
+} from '../../../../../assets/images/icons/requirements';
 
 const FilteredWeapons = () => {
   const currentCategory: any = useSelector(selectCurrent);
@@ -29,21 +35,25 @@ const FilteredWeapons = () => {
                 requirement={'strength'}
                 shortName={'STR'}
                 sortedCategory={sortedCategory}
+                icon={StrengthIcon}
               />
               <TableHeader
                 requirement={'dexterity'}
                 shortName={'DEX'}
                 sortedCategory={sortedCategory}
+                icon={DexterityIcon}
               />
               <TableHeader
                 requirement={'intelligence'}
                 shortName={'INT'}
                 sortedCategory={sortedCategory}
+                icon={IntelligenceIcon}
               />
               <TableHeader
                 requirement={'faith'}
                 shortName={'FAITH'}
                 sortedCategory={sortedCategory}
+                icon={FaithIcon}
               />
             </ButtonWrapper>
           </NavigationSection>
@@ -80,23 +90,11 @@ const WeaponSectionWrapper = styled.section`
   @media only screen and (max-width: 1600px) {
     height: 58vh;
   }
-
-  @media only screen and (max-width: 1000px) {
-    padding-top: 2rem;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-  }
 `;
 
 const NavigationSection = styled.section`
   padding: 0;
   margin: 0;
-  @media only screen and (max-width: 1000px) {
-    ${H2} {
-      display: none;
-    }
-  }
 `;
 
 const ButtonWrapper = styled.span`
@@ -105,16 +103,15 @@ const ButtonWrapper = styled.span`
   padding: 0.7rem 0;
   border-radius: 1.5rem 1.5rem 0 0;
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
   @media only screen and (max-width: 1000px) {
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
     margin: 0;
-    border-radius: 1.5rem 0 0 1.5rem;
-    height: 22.3rem;
+    display: flex;
+    justify-content: center;
   }
 `;
 const WeaponSectionElement = styled.section`
@@ -137,11 +134,11 @@ const WeaponSectionElement = styled.section`
     border-radius: 1rem;
     border: solid ${(p) => p.theme.primary};
   }
-
   @media only screen and (max-width: 1000px) {
-    border-width: 0.5rem 0.5rem 0.5rem 0.5rem;
-    border-radius: 0 1rem 1rem 0;
+    width: 100%;
+    padding: 0;
     margin: 0;
-    height: 22rem;
+    border-radius: 0;
+    border-width: 0;
   }
 `;
