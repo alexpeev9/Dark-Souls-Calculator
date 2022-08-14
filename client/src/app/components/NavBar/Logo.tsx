@@ -2,7 +2,8 @@ import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 
 import { LogoCircle } from '../../../assets/images/common';
-import H1 from '../H1';
+import H1 from '../elements/H1';
+import { StyleConstants } from '../../../assets/styles/StyleConstants';
 
 const Logo = () => {
   return (
@@ -27,7 +28,9 @@ const LogoWrapper = styled(Link)`
   }
 
   ${H1} {
-    margin: 0.6rem 0 1.2rem 0;
+    margin: 1.5rem 0 0.5rem 0;
+    word-break: break-word;
+    font-family: ${StyleConstants.FONT_TITLE};
   }
 `;
 

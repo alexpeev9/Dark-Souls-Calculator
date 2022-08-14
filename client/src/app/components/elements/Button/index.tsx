@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { StyleConstants } from '../../../assets/styles/StyleConstants';
+import { StyleConstants } from '../../../../assets/styles/StyleConstants';
 
 const Button = styled.button`
   border-radius: 0.6rem;

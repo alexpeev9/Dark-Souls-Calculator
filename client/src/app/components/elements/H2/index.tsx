@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { StyleConstants } from '../../../assets/styles/StyleConstants';
+import { StyleConstants } from '../../../../assets/styles/StyleConstants';
 
 const H2 = styled.h2`
   margin: 1rem 0;

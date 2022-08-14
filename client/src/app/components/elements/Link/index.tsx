@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { Link as RouterLink } from 'react-router-dom';
-import { StyleConstants } from '../../../assets/styles/StyleConstants';
+import { StyleConstants } from '../../../../assets/styles/StyleConstants';
 
 const Link = styled(RouterLink)`
   border-radius: 0.6rem;

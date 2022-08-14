@@ -1,17 +1,17 @@
-import React from 'react';
 import styled from 'styled-components/macro';
 import {
   AttackTypeIcon,
   DurabilityIcon,
   WeightIcon,
 } from '../../../../../assets/images/icons/stats';
+import H3 from '../../../../components/elements/H3';
 import InfoBullet from './InfoBullet';
 
 const GeneralInfo = ({ category }: any) => {
   return (
     <>
       <InfoSection>
-        <SecondTitle>Information</SecondTitle>
+        <H3>Information</H3>
         <InfoBullet
           name='Attack Type'
           value={category.attack_type}
@@ -37,9 +37,4 @@ const InfoSection = styled.section`
     display: flex;
     flex-direction: column;
   }
-`;
-
-const SecondTitle = styled.h3`
-  margin: 0;
-  text-align: center;
 `;

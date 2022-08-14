@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import H2 from '../../../components/elements/H2';
 
 const WeaponImage = ({ category }: any) => {
   let image;
@@ -14,7 +15,7 @@ const WeaponImage = ({ category }: any) => {
         alt={category.name}
         onError={(event: any) => (event.target.style.display = 'none')}
       />
-      <WeaponTitle>{category.name}</WeaponTitle>
+      <H2>{category.name}</H2>
     </ImageSection>
   );
 };
@@ -31,6 +32,10 @@ const ImageSection = styled.section`
   @media only screen and (max-width: 700px) {
     padding-bottom: 1.5rem;
   }
+
+  ${H2} {
+    margin-bottom: 0;
+  }
 `;
 
 const ImageElement = styled.img`
@@ -44,16 +49,5 @@ const ImageElement = styled.img`
   &:hover {
     background-color: ${(p) => p.theme.primary};
     border: 0.3rem solid ${(p) => p.theme.secondary};
-  }
-`;
-
-const WeaponTitle = styled.h1`
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  font-size: 3rem;
-
-  @media only screen and (max-width: 1600px) {
-    font-size: 2rem;
   }
 `;

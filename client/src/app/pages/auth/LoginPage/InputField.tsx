@@ -1,6 +1,6 @@
-import { Label } from '../../../components/Form/Label';
-import Input from '../../../components/Form/Input';
-import FormImage from '../../../components/Form/FormImage';
+import { Label } from '../../../components/elements/Form/Label';
+import Input from '../../../components/elements/Form/Input';
+import FormImage from '../../../components/elements/Form/FormImage';
 
 const InputField = ({ name, value, type, onInputChange, Icon }: any) => {
   return (

@@ -11,17 +11,17 @@ import {
   selectCurrentUsername,
   setCredentials,
 } from '../../../../store/slices/authSlice';
-import Form from '../../../components/Form';
-import Button from '../../../components/Button';
-import Input from '../../../components/Form/Input';
+import Form from '../../../components/elements/Form';
+import Button from '../../../components/elements/Button';
+import Input from '../../../components/elements/Form/Input';
 import {
   AttackTypeIcon,
   DurabilityIcon,
 } from '../../../../assets/images/icons/stats';
-import Link from '../../../components/Link';
-import H2 from '../../../components/H2';
+import Link from '../../../components/elements/Link';
+import H2 from '../../../components/elements/H2';
 import ErrorMsg from '../../../components/ErrorMsg';
-import ErrorButton from '../../../components/ErrorMsg/ErrorButton';
+import Loading from '../../../components/Loading';
 import errorHandler from '../../../utils/errorHandler';
 import InputField from '../LoginPage/InputField';
 
@@ -53,7 +53,7 @@ const RegisterForm = () => {
       await register({ username, password }).unwrap();
       const userData = await login({ username, password }).unwrap();
       dispatch(setCredentials({ ...(userData as any) }));
-      navigate('/');
+      navigate('/about');
     } catch (err: any) {
       setErrMsg(errorHandler(err));
     }
@@ -96,7 +96,7 @@ const RegisterForm = () => {
 
           {errMsg ? <ErrorMsg>{errMsg}</ErrorMsg> : <></>}
           {isLoadingRegister || isLoadingLogin ? (
-            <ErrorButton>...Loading</ErrorButton>
+            <Loading>...Loading</Loading>
           ) : (
             <>
               <Button type='submit'>Register</Button>
