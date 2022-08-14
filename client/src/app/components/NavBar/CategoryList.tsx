@@ -4,6 +4,7 @@ import styled from 'styled-components/macro';
 import { useGetCategoryListQuery } from '../../../store/api/categoryEndpoints';
 import errorHandler from '../../utils/errorHandler';
 import ErrorMsg from '../ErrorMsg';
+import Loading from '../Loading';
 
 const CategoryList = () => {
   const { pathname } = useLocation();
@@ -19,7 +20,7 @@ const CategoryList = () => {
   const getClassActive = (id: any) => (pathName === id ? 'active' : undefined);
   let content;
   if (isLoading) {
-    content = <ErrorMsg>Loading...</ErrorMsg>;
+    content = <Loading>Loading...</Loading>;
   } else if (isSuccess) {
     content = categories.map((category: any, i: any) => (
       <LinkElement

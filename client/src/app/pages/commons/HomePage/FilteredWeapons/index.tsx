@@ -7,7 +7,7 @@ import {
 } from '../../../../../store/slices/filteredWeaponsSlice';
 import TableHeader from './TableHeader';
 import WeaponDetails from './WeaponDetails';
-import H2 from '../../../../components/H2';
+import H2 from '../../../../components/elements/H2';
 
 const FilteredWeapons = () => {
   const currentCategory: any = useSelector(selectCurrent);

@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { StyleConstants } from '../../../assets/styles/StyleConstants';
+import { StyleConstants } from '../../../../assets/styles/StyleConstants';
 
 export const Label = styled.label`
   padding: 0.5rem;

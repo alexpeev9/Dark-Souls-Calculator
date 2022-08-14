@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components/macro';
 import {
   FireIcon,
@@ -6,12 +5,13 @@ import {
   MagicIcon,
   PhysicalIcon,
 } from '../../../../../assets/images/icons/damage';
+import H3 from '../../../../components/elements/H3';
 import InfoBullet from './InfoBullet';
 
 const DamageInfo = ({ damage }: any) => {
   return (
     <InfoSection>
-      <SecondTitle>Attack Damage</SecondTitle>
+      <H3>Attack Damage</H3>
       <InfoBullet
         name='Physical Damage'
         value={damage.physical}
@@ -37,9 +37,4 @@ const InfoSection = styled.section`
     display: flex;
     flex-direction: column;
   }
-`;
-
-const SecondTitle = styled.h3`
-  margin: 0;
-  text-align: center;
 `;

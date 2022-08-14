@@ -1,6 +1,6 @@
-import { Label } from '../../../components/Form/Label';
-import Input from '../../../components/Form/Input';
-import FormImage from '../../../components/Form/FormImage';
+import { Label } from '../../../components/elements/Form/Label';
+import Input from '../../../components/elements/Form/Input';
+import FormImage from '../../../components/elements/Form/FormImage';
 
 const CalculatorField = ({ name, value, onInputChange, Icon }: any) => {
   return (
@@ -11,8 +11,8 @@ const CalculatorField = ({ name, value, onInputChange, Icon }: any) => {
         type='number'
         onChange={onInputChange}
         value={value}
-        minLength={0}
-        maxLength={99}
+        min='0'
+        max='99'
         title='Enter only english letters and digits!'
         required
       />

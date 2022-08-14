@@ -5,12 +5,13 @@ import {
   IntelligenceIcon,
   FaithIcon,
 } from '../../../../../assets/images/icons/requirements';
+import H3 from '../../../../components/elements/H3';
 import VerticalInfoBullet from './VerticalInfoBullet';
 
 const RequirementInfo = ({ requirements, bonus }: any) => {
   return (
     <InfoWrapper>
-      <SecondTitle>Requirements & Bonus</SecondTitle>
+      <H3>Requirements & Bonus</H3>
       <RequirementsWrapper>
         <VerticalInfoBullet
           name='Strength'
@@ -42,11 +43,6 @@ const RequirementInfo = ({ requirements, bonus }: any) => {
 };
 
 export default RequirementInfo;
-
-const SecondTitle = styled.h3`
-  margin: 0;
-  text-align: center;
-`;
 
 const InfoWrapper = styled.article`
   background-color: ${(p) => p.theme.primary};

@@ -1,8 +1,7 @@
 import styled from 'styled-components/macro';
 
 import { NotFoundGif } from '../../../../assets/images/common';
-import { StyleConstants } from '../../../../assets/styles/StyleConstants';
-import H2 from '../../../components/H2';
+import H2 from '../../../components/elements/H2';
 
 const NotFoundPage = () => {
   return (

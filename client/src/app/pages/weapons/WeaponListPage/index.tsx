@@ -1,8 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { useGetWeaponsByCategoryQuery } from '../../../../store/api/weaponEndpoints';
+import H2 from '../../../components/elements/H2';
 import ErrorBox from '../../../components/ErrorMsg/ErrorBox';
 import Buttons from './Buttons';
 
@@ -18,11 +19,15 @@ const WeaponListPage = () => {
   let content;
 
   if (isLoading) {
-    content = <CategoryDetails>...Loading</CategoryDetails>;
+    content = (
+      <CategoryDetails>
+        <H2>...Loading</H2>
+      </CategoryDetails>
+    );
   } else if (isSuccess) {
     content = (
       <CategoryDetails>
-        <FilteredTitle>{data?.name}:</FilteredTitle>
+        <H2>{data?.name}:</H2>
         <Buttons weapons={data?.weapons} selectWeapon={selectWeapon} />
       </CategoryDetails>
     );
@@ -76,20 +81,15 @@ const CategoryDetails = styled.main`
     width: 100%;
     padding: 0;
   }
-`;
 
-const FilteredTitle = styled.h2`
-  font-size: 2rem;
-  margin: 1rem 0 1rem 0;
-  color: black;
-  text-decoration: underline;
-  @media only screen and (max-width: 1000px) {
-    background-color: ${(p) => p.theme.secondary};
-    color: black;
-    border-radius: 1rem 1rem 0 0;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    margin: 0;
+  ${H2} {
+    @media only screen and (max-width: 1000px) {
+      background-color: ${(p) => p.theme.secondary};
+      border-radius: 1rem 1rem 0 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      margin: 0;
+    }
   }
 `;

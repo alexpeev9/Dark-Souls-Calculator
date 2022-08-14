@@ -7,7 +7,8 @@ import {
   selectFilteredCategories,
   setCurrent,
 } from '../../../../store/slices/filteredWeaponsSlice';
-import H2 from '../../../components/H2';
+import H2 from '../../../components/elements/H2';
+import H3 from '../../../components/elements/H3';
 import FilteredWeapons from './FilteredWeapons';
 
 const FilteredCategories = () => {
@@ -49,9 +50,9 @@ const FilteredCategories = () => {
                 src={loadImage(category.imageUrl)}
                 alt={category.name}
               />
-              <ElementTitle>
+              <H3>
                 {category.name} ({category.weapons.length})
-              </ElementTitle>
+              </H3>
             </ButtonElement>
           ))}
         </ButtonSection>
@@ -167,13 +168,12 @@ const ButtonElement = styled.button`
     width: 100%;
     padding: 0.2rem 0;
   }
+
+  ${H3} {
+    text-align: left;
+    padding: 0 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const ImageElement = styled.img``;
-
-const ElementTitle = styled.h3`
-  padding: 0 0 0 0.5rem;
-  margin: 0;
-  text-align: left;
-  font-size: 1.5rem;
-`;

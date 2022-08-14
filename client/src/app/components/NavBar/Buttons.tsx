@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
-import Button from '../Button';
-import Link from '../Link';
+import Button from '../elements/Button';
+import Link from '../elements/Link';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -30,9 +30,12 @@ const Buttons = () => {
           <Link to='/register'>Join Now</Link>
         </>
       ) : (
-        <Button type='button' onClick={onLogout}>
-          Logout
-        </Button>
+        <>
+          <Link to='/about'>About</Link>
+          <Button type='button' onClick={onLogout}>
+            Logout
+          </Button>
+        </>
       )}
     </ButtonsWrapper>
   );

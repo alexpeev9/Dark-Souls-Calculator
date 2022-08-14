@@ -4,6 +4,7 @@ import GlobalStyle from '../assets/styles/GlobalStyle';
 import NavBar from './components/NavBar';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
+import AboutPage from './pages/commons/AboutPage';
 
 import HomePage from './pages/commons/HomePage';
 import NotFoundPage from './pages/commons/NotFoundPage';
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/' element={<HomePage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/about' element={<AboutPage />} />
 
         <Route path=':categoryName' element={<WeaponListPage />}>
           <Route path=':weaponName' element={<WeaponDetailsPage />} />
