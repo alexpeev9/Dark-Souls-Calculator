@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://dark-souls-calculator.herokuapp.com/">
-    <img src="readme-images/Logo.png" alt="Logo" width="100" height="80">
+    <img src="https://i.imgur.com/ing1VW7.png" alt="Logo" width="100" height="80">
   </a>
   <h3 align="center">Dark Souls Calculator</h3>
 
@@ -31,12 +31,20 @@ The project is split into two folders - **server** and **client**.
 
 ##### How Does The Calculator Work?
 
-![Calculator-1](readme-images/1-Home.png)
-![Calculator-2](readme-images/2-Home.png)
-![Calculator-3](readme-images/3-Home.png)
-![Calculator-4](readme-images/4-Details.png)
+![Calculator-1](https://i.imgur.com/8Zc2KP3.png)
+![Calculator-2](https://i.imgur.com/yGnIVtk.png)
+![Calculator-3](https://i.imgur.com/Cn0vKVW.png)
+![Calculator-4](https://i.imgur.com/pzW0FJh.png)
 
 #### Responsive Design
 
-![Calculator-Responsive](readme-images/5-Home-Responsive.png)
-![Calculator-Details](readme-images/7-Details-Responsive.png)
+![Calculator-Responsive](https://i.imgur.com/7uWGNOQ.png)
+![Calculator-Details](https://i.imgur.com/R6s5RTP.png)
+
+![Register](https://i.imgur.com/BfLwdGy.png)
+
+<p align="center">
+  <img src="https://i.imgur.com/aqopkPt.png" alt="sword">
+  </br>
+  Thanks for Reading!
+</p>
