@@ -17,7 +17,11 @@ This project was made with **MERN stack** - **Mongoose**, **Express**, **React**
 
 #### 📌 About
 
-The project is split into two folders - **server** and **client**.
+The project is split into two folders - **server** and **client**. Each of them has a ReadmeMD file.
+
+<p align="center">
+     <a href="">« React Client Docs</a> &nbsp; | &nbsp;  <a href="">Express Server Docs »</a>
+</p>
 
 - For the _server part_, we have an **Express API** running with a **Mongoose** database.
 - For the _client part_, we have a simple react application, using **Redux**, **Redux-Toolkit**, and **Styled-Components**.
