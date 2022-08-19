@@ -24,6 +24,8 @@
 - For the _server part_, we have an **Express API** running with a **Mongoose** database.
 - For the _client part_, we have a simple react application using **Redux**, **Redux-Toolkit**, and **Styled-Components**.
 
+- 🚀 The Project was originally written on **JavaScript** and you can view it [here](https://github.com/alexpeev9/Dark-Souls-Calculator/tree/JavaScript-Version-of-Project).
+
 #### 📌 How to use
 
 - <a href="http://dark-souls-calculator.herokuapp.com/"> Go to Site</a>
@@ -42,6 +44,22 @@
 
 ![Calculator-Responsive](https://i.imgur.com/7uWGNOQ.png)
 ![Calculator-Details](https://i.imgur.com/R6s5RTP.png)
+
+#### Getting Started
+
+```shell
+git clone https://github.com/alexpeev9/Dark-Souls-Calculator.git example
+cd ./example
+yarn heroku-postbuild
+```
+
+Be sure to create `.env` files in the folders `/server` and `/client` and add **env variables** as in `/.env.example` in each folder.
+
+#### Scripts
+
+- `yarn heroku-postbuild` - **Installs** needed dependencies and **builds** the projects.
+- `yarn server` — **Starts** the Express Server.
+- `yarn client` — **Starts** the React App.
 
 <p align="center">
   <img src="https://i.imgur.com/aqopkPt.png" alt="sword">
