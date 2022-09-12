@@ -7,7 +7,7 @@
   <p align="center">
     MERN Project with Redux Toolkit
     <br />
-    <a href="http://dark-souls-calculator.herokuapp.com/"> Live Demo of Site</a>
+    <a href="https://dark-souls-calculator.herokuapp.com/"> Live Demo of Site</a>
   </p>
 </p>
 
@@ -28,7 +28,7 @@
 
 #### 📌 How to use
 
-- <a href="http://dark-souls-calculator.herokuapp.com/"> Go to Site</a>
+- <a href="https://dark-souls-calculator.herokuapp.com/"> Go to Site</a>
 
 ![Calculator-1](https://i.imgur.com/8Zc2KP3.png)
 ![Calculator-2](https://i.imgur.com/yGnIVtk.png)
@@ -66,5 +66,5 @@ Be sure to create `.env` files in the folders `/server` and `/client` and add **
   </br>
   Thanks for Reading!
   </br>
-  <a href="http://dark-souls-calculator.herokuapp.com/">Visit Site</a>
+  <a href="https://dark-souls-calculator.herokuapp.com/">Visit Site</a>
 </p>
