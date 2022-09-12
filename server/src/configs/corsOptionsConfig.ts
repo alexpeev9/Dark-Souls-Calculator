@@ -8,9 +8,11 @@ const corsOptionsConfig = {
   //     callback(new Error('Not allowed by CORS'));
   //   }
   // },
-  origin: allowedOrigins,
+
+  // origin: allowedOrigins,
+  origin: '*', // temporary to fix bug
   credentials: true,
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 200
 };
 
 export default corsOptionsConfig;
