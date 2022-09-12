@@ -10,7 +10,7 @@ const corsOptionsConfig = {
   // },
 
   // origin: allowedOrigins,
-  origin: '*', // temporary to fix bug
+  origin: true, // temporary to fix bug
   credentials: true,
   optionsSuccessStatus: 200
 };
